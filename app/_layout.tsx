@@ -1,9 +1,11 @@
 import LinearView from "@/components/LinearView";
+import { store } from "@/lib/store";
 import { useFonts } from "expo-font";
 import { Slot } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { Provider } from "react-redux";
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -19,14 +21,16 @@ export default function RootLayout() {
   }
 
   return (
-    <SafeAreaProvider>
-      <LinearView>
-        <SafeAreaView style={{ flex: 1 }}>
-          <Slot />
-          <StatusBar style="light" />
-        </SafeAreaView>
-      </LinearView>
-    </SafeAreaProvider>
+    <Provider store={store}>
+      <SafeAreaProvider>
+        <LinearView>
+          <SafeAreaView style={{ flex: 1 }}>
+            <Slot />
+            <StatusBar style="light" />
+          </SafeAreaView>
+        </LinearView>
+      </SafeAreaProvider>
+    </Provider>
   );
 }
 function useEffect(arg0: () => () => void, arg1: any[]) {

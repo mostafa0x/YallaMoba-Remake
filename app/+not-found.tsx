@@ -1,12 +1,15 @@
-import { Link, Stack } from "expo-router";
-import { StyleSheet } from "react-native";
+import CustomButton from "@/components/CustomButton";
+import { Colors } from "@/constants/Colors";
+import { Fonts } from "@/constants/Fonts";
+import { rf, rh } from "@/utils/dimensions";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function NotFoundScreen() {
   return (
-    <>
-      <Stack.Screen options={{ title: "Oops!" }} />
-      <Link href="/" style={styles.link}></Link>
-    </>
+    <View style={styles.container}>
+      <Text style={styles.title}>Not Found Screen</Text>
+      <CustomButton context={"Back To Home"} />
+    </View>
   );
 }
 
@@ -15,10 +18,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    padding: 20,
+    color: Colors.TextColor,
+    gap: rh(50),
   },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
+  title: {
+    color: Colors.TextColor,
+    fontSize: rf(30),
+    fontFamily: Fonts.InterBold,
   },
 });
