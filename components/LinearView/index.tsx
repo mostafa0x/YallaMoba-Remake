@@ -12,6 +12,7 @@ export default function LinearView({ children }: any) {
       style={{
         width: rw(BASE_WIDTH),
         height: rh(BASE_HEIGHT),
+        flex: 1,
       }}
     >
       {children}

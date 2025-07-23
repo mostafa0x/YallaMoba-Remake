@@ -1,93 +1,87 @@
+import CustomButton from "@/components/CustomButton";
+import GenderBtn from "@/components/GenderBtn";
+import HelpAuth from "@/components/HelperAuth";
+import InputText from "@/components/InputText";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
 import { rf, rh, rw } from "@/utils/dimensions";
-import { Image } from "expo-image";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { Button } from "react-native-paper";
-import { Shadow } from "react-native-shadow-2";
 
 export default function HomeScreen() {
   return (
-    <View style={{}}>
-      <View style={Style.mainContiner}>
-        <Image
-          style={Style.img}
-          contentFit="contain"
-          source={require("../../assets/images/landing/introLayla.png")}
-        />
+    <View style={Style.mainContainer}>
+      <View style={Style.labelContainer}>
+        <Text style={Style.label}>Sign up</Text>
       </View>
-      <Shadow
-        distance={16}
-        startColor="rgba(0,0,0,0.60)"
-        offset={[0, rh(560)]}
-        style={{ borderRadius: rw(40) }}
-      >
-        <View style={Style.continer}>
-          <Text style={Style.mainTxt}>Welcome, Gamer ! </Text>
-          <Text style={Style.secTxt}>
-            Get ready to connect, share , epic moments, and team up with players
-            just like you. Let the fun begin
-          </Text>
-          <View style={{ marginTop: rh(60) }}>
-            <Button labelStyle={Style.labelBtn} buttonColor={Colors.BtnColor}>
-              Get Started
-            </Button>
+      <View style={Style.fieldsContainer}>
+        {["username", "email", "password", "repassword"].map(
+          (field: string) => (
+            <InputText
+              key={field}
+              name={field}
+              label={field.charAt(0).toUpperCase() + field.slice(1)}
+            />
+          )
+        )}
+        <View style={Style.roleContainer}>
+          <Text style={Style.minlabel}>Role</Text>
+          <InputText name={"role"} label={"select you Role"} />
+        </View>
+        <View style={Style.genderContainer}>
+          <Text style={Style.minlabel}>Gender</Text>
+          <View style={Style.genderBtns}>
+            <GenderBtn label={"Male"} />
+            <GenderBtn label={"Female"} />
           </View>
         </View>
-      </Shadow>
+      </View>
+      <View style={Style.btnContainer}>
+        <CustomButton context={"Sign Up"} />
+      </View>
+      <View style={Style.helper}>
+        <HelpAuth mode="in" />
+      </View>
     </View>
   );
 }
 
 const Style = StyleSheet.create({
-  mainContiner: {
-    position: "absolute",
-    width: rw(390),
-    height: rh(714),
+  mainContainer: {
+    marginTop: rh(21),
+    marginHorizontal: rw(32),
   },
-  img: {
-    width: "100%",
-    height: "100%",
+  fieldsContainer: {
+    gap: rh(20),
   },
-  continer: {
-    position: "absolute",
-    top: rh(560),
-    width: rw(390),
-    height: rh(400),
-    borderWidth: 1,
-    backgroundColor: Colors.LandingContiner,
-    borderRadius: rw(40),
-    paddingVertical: rh(34),
-    paddingHorizontal: rw(30),
+  roleContainer: {
+    gap: rh(7),
   },
-  mainTxt: {
-    fontSize: rf(36),
+  genderContainer: {
+    gap: rh(7),
+  },
+  labelContainer: {
+    marginBottom: rh(36),
+  },
+  label: {
+    color: Colors.TextColor,
+    fontSize: rf(30),
     fontFamily: Fonts.InterBold,
-    color: "#FFFFFF",
-    textShadowColor: "rgba(0, 0, 0, 0.25)",
-    textShadowOffset: { width: 0, height: 4 },
-    textShadowRadius: 4,
   },
-  secTxt: {
-    paddingTop: rh(16),
-    paddingLeft: rw(5),
-    fontSize: rf(20),
+  minlabel: {
+    color: Colors.TextColor,
+    fontSize: rf(17),
     fontFamily: Fonts.Inter,
-    color: "#FFFFFF",
-    textShadowColor: "rgba(0, 0, 0, 0.25)",
-    textShadowRadius: 4,
-    textShadowOffset: { width: 0, height: 4 },
+    fontWeight: "medium",
   },
-  mainBtn: {
-    borderRadius: rw(40),
-    width: rw(317),
-    height: rh(51),
+  genderBtns: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
   },
-  labelBtn: {
-    fontSize: rf(22),
-    fontFamily: Fonts.InterBold,
-    lineHeight: rh(28.5),
-    color: Colors.BtnTxtColor,
+  btnContainer: {
+    marginTop: rh(66),
+  },
+  helper: {
+    marginTop: rh(33),
   },
 });
