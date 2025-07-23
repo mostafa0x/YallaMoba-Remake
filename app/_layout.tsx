@@ -1,6 +1,7 @@
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { Slot } from "expo-router";
 import "react-native-reanimated";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -16,7 +17,11 @@ export default function RootLayout() {
   }
 
   return (
-    <Stack />
+    <SafeAreaProvider>
+      <SafeAreaView style={{ flex: 1 }}>
+        <Slot />
+      </SafeAreaView>
+    </SafeAreaProvider>
     // <StatusBar style="auto" />
   );
 }
