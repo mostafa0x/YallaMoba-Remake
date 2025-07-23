@@ -1,0 +1,54 @@
+import { Colors } from "@/constants/Colors";
+import { rh, rw } from "@/utils/dimensions";
+import React, { useRef } from "react";
+import { StyleSheet } from "react-native";
+import { List } from "react-native-paper";
+
+interface props {
+  isOpenMenu: boolean;
+  setIsOpenMenu: any;
+}
+
+export default function RoleSelector({ setIsOpenMenu, isOpenMenu }: props) {
+  const Roles = useRef(["MM", "Exp", "Jungle", "Mid", "Roam"]);
+  return (
+    <List.Accordion
+      title="Select Your Role"
+      titleStyle={Style.title}
+      style={Style.mainlist}
+      theme={{ colors: { background: "transparent" } }}
+      onPress={() =>
+        setIsOpenMenu((prev: boolean) => (prev == true ? false : true))
+      }
+    >
+      {Roles.current.map((role, index: number) => (
+        <List.Item
+          onPress={() => console.log(role)}
+          key={index}
+          title={role}
+          titleStyle={Style.title}
+          style={Style.list}
+        />
+      ))}
+    </List.Accordion>
+  );
+}
+
+const Style = StyleSheet.create({
+  title: {
+    color: Colors.TextColor,
+  },
+  mainlist: {
+    backgroundColor: "transparent",
+    elevation: 0,
+    borderWidth: 3,
+    borderRadius: rw(25),
+    borderColor: Colors.boderColor,
+  },
+  list: {
+    gap: 200,
+    backgroundColor: "#635A8F",
+    borderRadius: rw(10),
+    marginVertical: rh(10),
+  },
+});

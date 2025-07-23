@@ -8,7 +8,7 @@ export default function GenderBtn({ label }: { label: string }) {
     <TouchableOpacity>
       <View
         style={{
-          borderWidth: 3,
+          borderWidth: rw(2.96),
           width: rw(87),
           height: rh(54),
           borderColor: Colors.boderColor,

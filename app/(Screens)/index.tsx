@@ -2,13 +2,15 @@ import CustomButton from "@/components/CustomButton";
 import GenderBtn from "@/components/GenderBtn";
 import HelpAuth from "@/components/HelperAuth";
 import InputText from "@/components/InputText";
+import RoleSelector from "@/components/RoleSelector";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
 import { rf, rh, rw } from "@/utils/dimensions";
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function HomeScreen() {
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
   return (
     <View style={Style.mainContainer}>
       <View style={Style.labelContainer}>
@@ -26,22 +28,27 @@ export default function HomeScreen() {
         )}
         <View style={Style.roleContainer}>
           <Text style={Style.minlabel}>Role</Text>
-          <InputText name={"role"} label={"select you Role"} />
+          <RoleSelector isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} />
         </View>
-        <View style={Style.genderContainer}>
-          <Text style={Style.minlabel}>Gender</Text>
-          <View style={Style.genderBtns}>
-            <GenderBtn label={"Male"} />
-            <GenderBtn label={"Female"} />
+      </View>
+
+      {!isOpenMenu && (
+        <>
+          <View style={Style.genderContainer}>
+            <Text style={Style.minlabel}>Gender</Text>
+            <View style={Style.genderBtns}>
+              <GenderBtn label={"Male"} />
+              <GenderBtn label={"Female"} />
+            </View>
           </View>
-        </View>
-      </View>
-      <View style={Style.btnContainer}>
-        <CustomButton context={"Sign Up"} />
-      </View>
-      <View style={Style.helper}>
-        <HelpAuth mode="in" />
-      </View>
+          <View style={Style.btnContainer}>
+            <CustomButton context={"Sign Up"} />
+          </View>
+          <View style={Style.helper}>
+            <HelpAuth mode="in" />
+          </View>
+        </>
+      )}
     </View>
   );
 }
@@ -59,6 +66,7 @@ const Style = StyleSheet.create({
   },
   genderContainer: {
     gap: rh(7),
+    marginTop: rh(10),
   },
   labelContainer: {
     marginBottom: rh(36),
