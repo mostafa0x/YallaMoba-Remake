@@ -20,12 +20,12 @@ export default function RootLayout() {
 
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={{ flex: 1 }}>
-        <LinearView>
+      <LinearView>
+        <SafeAreaView style={{ flex: 1 }}>
           <Slot />
-          <StatusBar style="auto" />
-        </LinearView>
-      </SafeAreaView>
+          <StatusBar style="light" />
+        </SafeAreaView>
+      </LinearView>
     </SafeAreaProvider>
   );
 }
