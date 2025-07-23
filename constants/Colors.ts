@@ -1,1 +1,3 @@
-export const Colors = {};
+export const Colors = {
+  LandingContiner: "#CB98EB",
+};
