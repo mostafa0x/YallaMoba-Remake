@@ -43,7 +43,11 @@ export default function NavBar() {
           onPress={() => pathName !== "/" && router.push("/")}
           style={{ position: "absolute", bottom: rh(15), left: rw(20) }}
         >
-          <HomeIcon width={rw(40)} height={rh(40)} />
+          <HomeIcon
+            isActive={pathName == "/" ? true : false}
+            width={rw(40)}
+            height={rh(40)}
+          />
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -56,7 +60,11 @@ export default function NavBar() {
           onPress={() => pathName !== "/Proflie" && router.push("/SignUp")}
           style={{ position: "absolute", bottom: rh(15), right: rw(20) }}
         >
-          <ProfileIcon width={rw(40)} height={rh(40)} />
+          <ProfileIcon
+            isActive={pathName == "/Proflie" ? true : false}
+            width={rw(40)}
+            height={rh(40)}
+          />
         </TouchableOpacity>
       </View>
     </View>

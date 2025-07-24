@@ -14,4 +14,6 @@ export const Colors = {
   txtAgoTime: "rgba(255, 255, 255, 0.7)",
   menuInReelList: "#ffffff",
   reactionTxt: "#E5D7F7",
+  isActiveIcon: "#635A8F",
+  unActiveIcon: "#C0C0C0",
 };
