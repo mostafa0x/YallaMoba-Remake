@@ -1,4 +1,4 @@
-import CustomInputField from "@/components/Fields/CustomInputField";
+import SearchbarFC from "@/components/Fields/SearchbarFC";
 import ListFriendsHome from "@/components/ListFriends/ListFriendsHome";
 import ReelListCard from "@/components/ReelList/Card";
 import { rh, rw } from "@/utils/dimensions";
@@ -9,7 +9,8 @@ export default function HomeScreen() {
   return (
     <View style={Style.contianer}>
       <View style={Style.appBar}>
-        <CustomInputField name={"Explore"} label={"Explore"} />
+        {/* <CustomInputField name={"Explore"} label={"Explore"} /> */}
+        <SearchbarFC />
       </View>
       <View style={Style.listFriend}>
         <ListFriendsHome />

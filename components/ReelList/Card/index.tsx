@@ -14,7 +14,7 @@ function ReelListCard() {
             <View style={styles.ItemSeparator}></View>
           )}
           data={[1, 2]}
-          estimatedItemSize={100}
+          estimatedItemSize={417}
           renderItem={() => <ReelListItems />}
         />
       </View>

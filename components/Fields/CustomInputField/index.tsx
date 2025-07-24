@@ -32,7 +32,7 @@ const Style = StyleSheet.create({
     borderRadius: rw(25),
     backgroundColor: Colors.customInputBackColor,
     flexDirection: "row",
-    paddingHorizontal: rw(55),
+    paddingHorizontal: rw(23),
     paddingTop: rh(5),
   },
   secContainer: {
@@ -42,7 +42,7 @@ const Style = StyleSheet.create({
     gap: rw(13),
   },
   input: {
-    width: rw(284),
+    width: "90%",
     fontFamily: Fonts.PoppinsMedium,
     fontSize: rf(17),
     color: Colors.customInputText,
