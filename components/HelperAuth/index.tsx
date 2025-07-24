@@ -33,14 +33,12 @@ const Style = StyleSheet.create({
     textAlign: "center",
     fontSize: rf(17),
     fontFamily: Fonts.PoppinsMedium,
-    fontWeight: "medium",
     color: Colors.TextColor,
   },
   BtnSignUp: {
     textAlign: "center",
     fontSize: rf(17),
-    fontFamily: Fonts.InterBold,
-    fontWeight: "bold",
+    fontFamily: Fonts.PoppinsBold,
     color: Colors.minBtn,
   },
 });

@@ -50,11 +50,11 @@ const Style = StyleSheet.create({
     paddingHorizontal: rw(19),
   },
   input: {
-    paddingVertical: rh(12),
     width: "90%",
     fontSize: rf(17),
-    fontFamily: Fonts.Inter,
+    fontFamily: Fonts.PoppinsMedium,
     fontWeight: "medium",
+    textAlignVertical: "center",
   },
 });
 
