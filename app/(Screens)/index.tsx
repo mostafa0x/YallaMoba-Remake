@@ -14,6 +14,7 @@ export default function HomeScreen() {
       <View style={Style.listFriend}>
         <ListFriendsHome />
       </View>
+
       <View style={Style.contant}>
         <ReelListCard />
       </View>
@@ -34,7 +35,7 @@ const Style = StyleSheet.create({
     marginLeft: rw(32),
   },
   contant: {
-    marginTop: rh(145),
+    marginTop: rh(130),
     marginLeft: rw(32),
     marginRight: rw(19),
   },

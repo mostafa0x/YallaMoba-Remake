@@ -2,7 +2,7 @@ import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
 import { rf, rh, rw } from "@/utils/dimensions";
 import React, { memo } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import CommentsIcon from "../../IconsSvg/CommentsIcon";
 import HeartIcon from "../../IconsSvg/HeartIcon";
 
@@ -11,11 +11,15 @@ function ReactionsReel() {
     <View style={styles.reactions}>
       <View style={styles.reactionsBox}>
         <View style={styles.reactionsIcon}>
-          <HeartIcon width={rw(30)} height={rh(30)} />
+          <TouchableOpacity>
+            <HeartIcon width={rw(30)} height={rh(30)} />
+          </TouchableOpacity>
           <Text style={styles.reactionsTxt}>999</Text>
         </View>
         <View style={styles.reactionsIcon}>
-          <CommentsIcon width={rw(30)} height={rh(30)} />
+          <TouchableOpacity>
+            <CommentsIcon width={rw(30)} height={rh(30)} />
+          </TouchableOpacity>
           <Text style={styles.reactionsTxt}>999</Text>
         </View>
       </View>

@@ -9,6 +9,7 @@ function ReelListCard() {
     <View style={styles.container}>
       <View style={styles.flashListContainer}>
         <FlashList
+          contentContainerStyle={{ paddingBottom: rh(300) }}
           ItemSeparatorComponent={() => (
             <View style={styles.ItemSeparator}></View>
           )}
@@ -26,7 +27,6 @@ const styles = StyleSheet.create({
   flashListContainer: {
     width: "100%",
     height: "100%",
-    paddingBottom: rh(210),
   },
   ItemSeparator: {
     height: rh(28),
