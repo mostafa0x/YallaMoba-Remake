@@ -10,7 +10,7 @@ export default function ListFriendsHome() {
       <View style={styles.containeFlashList}>
         <FlashList
           horizontal
-          ItemSeparatorComponent={() => <View style={{ width: 20 }} />}
+          ItemSeparatorComponent={() => <View style={styles.ItemSeparator} />}
           data={[1, 2, 3, 4, 5, 6, 7, 8]}
           keyExtractor={(_, index) => index.toString()}
           estimatedItemSize={66}
@@ -30,4 +30,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   flashList: {},
+  ItemSeparator: {
+    width: 20,
+  },
 });

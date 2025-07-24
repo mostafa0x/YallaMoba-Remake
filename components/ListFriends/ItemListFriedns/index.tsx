@@ -15,7 +15,7 @@ function ItemListFriedns() {
         style={styles.boderAvatar}
       >
         <View style={styles.avatar}>
-          <Avatar.Image size={rf(58)} source={{ uri: "" }} />
+          <Avatar.Image size={rf(60)} source={{ uri: "" }} />
         </View>
       </LinearGradient>
       <View>

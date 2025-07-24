@@ -1,4 +1,4 @@
-import Btn from "@/components/CustomButton";
+import Btn from "@/components/Fields/CustomButton";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
 import { rf, rh, rw } from "@/utils/dimensions";

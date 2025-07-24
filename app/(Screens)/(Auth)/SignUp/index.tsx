@@ -1,8 +1,8 @@
-import CustomButton from "@/components/CustomButton";
-import GenderBtn from "@/components/GenderBtn";
+import CustomButton from "@/components/Fields/CustomButton";
+import GenderBtn from "@/components/Fields/GenderBtn";
+import InputText from "@/components/Fields/InputText";
+import RoleSelector from "@/components/Fields/RoleSelector";
 import HelpAuth from "@/components/HelperAuth";
-import InputText from "@/components/InputText";
-import RoleSelector from "@/components/RoleSelector";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
 import { rf, rh, rw } from "@/utils/dimensions";

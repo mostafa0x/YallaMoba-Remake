@@ -1,6 +1,6 @@
-import Btn from "@/components/CustomButton";
+import Btn from "@/components/Fields/CustomButton";
+import InputText from "@/components/Fields/InputText";
 import HelpAuth from "@/components/HelperAuth";
-import InputText from "@/components/InputText";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
 import { rf, rh, rw } from "@/utils/dimensions";

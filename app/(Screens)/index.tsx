@@ -1,5 +1,5 @@
-import CustomInputField from "@/components/CustomInputField";
-import ListFriendsHome from "@/components/ListFriendsHome";
+import CustomInputField from "@/components/Fields/CustomInputField";
+import ListFriendsHome from "@/components/ListFriends/ListFriendsHome";
 import { rh, rw } from "@/utils/dimensions";
 import React from "react";
 import { StyleSheet, View } from "react-native";
