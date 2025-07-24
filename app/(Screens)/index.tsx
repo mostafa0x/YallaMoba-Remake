@@ -10,9 +10,10 @@ export default function HomeScreen() {
       <View style={Style.appBar}>
         <CustomInputField name={"Explore"} label={"Explore"} />
       </View>
-      <View>
+      <View style={Style.listFriend}>
         <ListFriendsHome />
       </View>
+      <View style={Style.contant}></View>
     </View>
   );
 }
@@ -24,5 +25,12 @@ const Style = StyleSheet.create({
   appBar: {
     justifyContent: "center",
     marginLeft: rw(39),
+  },
+  listFriend: {
+    marginTop: rh(26),
+    marginLeft: rw(32),
+  },
+  contant: {
+    marginHorizontal: rw(32),
   },
 });

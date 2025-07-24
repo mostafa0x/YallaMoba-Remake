@@ -1,15 +1,21 @@
+import { rh } from "@/utils/dimensions";
 import { FlashList } from "@shopify/flash-list";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import ItemListFriedns from "../ItemListFriedns";
 
 export default function ListFriendsHome() {
   return (
     <View style={styles.container}>
       <View style={styles.containeFlashList}>
         <FlashList
-          style={styles.flashList}
-          data={[]}
-          renderItem={() => <Text>Hi</Text>}
+          horizontal
+          ItemSeparatorComponent={() => <View style={{ width: 20 }} />}
+          data={[1, 2, 3, 4, 5, 6, 7, 8]}
+          keyExtractor={(_, index) => index.toString()}
+          estimatedItemSize={66}
+          renderItem={() => <ItemListFriedns />}
+          showsHorizontalScrollIndicator={false}
         />
       </View>
     </View>
@@ -17,7 +23,11 @@ export default function ListFriendsHome() {
 }
 
 const styles = StyleSheet.create({
-  container: {},
-  containeFlashList: {},
+  container: { flex: 1 },
+  containeFlashList: {
+    width: "100%",
+    height: rh(100),
+    flexDirection: "row",
+  },
   flashList: {},
 });
