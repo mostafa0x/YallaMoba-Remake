@@ -16,4 +16,5 @@ export const Colors = {
   reactionTxt: "#E5D7F7",
   isActiveIcon: "#635A8F",
   unActiveIcon: "#C0C0C0",
+  playerNameProfile: "#3B21B2",
 };

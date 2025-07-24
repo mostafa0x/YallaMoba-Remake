@@ -4,12 +4,14 @@ import React, { memo } from "react";
 import { StyleSheet, View } from "react-native";
 import ReelListItems from "../Item";
 
-function ReelListCard() {
+function ReelListCard({ calledFromHome }: { calledFromHome: boolean }) {
   return (
     <View style={styles.container}>
       <View style={styles.flashListContainer}>
         <FlashList
-          contentContainerStyle={{ paddingBottom: rh(300) }}
+          contentContainerStyle={{
+            paddingBottom: calledFromHome ? rh(300) : rh(690),
+          }}
           ItemSeparatorComponent={() => (
             <View style={styles.ItemSeparator}></View>
           )}

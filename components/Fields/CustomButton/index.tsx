@@ -8,13 +8,14 @@ import { Shadow } from "react-native-shadow-2";
 
 interface props {
   context: string;
+  Width: number;
 }
 
-function Btn({ context }: props) {
+function Btn({ context, Width = 320 }: props) {
   return (
     <Shadow distance={4} startColor="rgba(0, 0, 0, 0.25)" offset={[0, 4]}>
       <Button
-        style={Style.mainBtn}
+        style={{ borderRadius: rw(25), width: rw(Width), height: rh(54) }}
         labelStyle={Style.labelBtn}
         contentStyle={Style.contentBtn}
         buttonColor={Colors.BtnColor}
