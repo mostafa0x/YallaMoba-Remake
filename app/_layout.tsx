@@ -14,6 +14,9 @@ export default function RootLayout() {
     "Inter-Italic": require("../assets/fonts/Inter-Italic.ttf"),
     "Inter-BoldItalic": require("../assets/fonts/Inter-BoldItalic.ttf"),
     "WendyOne-Regular": require("../assets/fonts/WendyOne-Regular.ttf"),
+    "Poppins-Light": require("../assets/fonts/Poppins-Light.ttf"),
+    "Poppins-Medium": require("../assets/fonts/Poppins-Medium.ttf"),
+    "Poppins-Bold": require("../assets/fonts/Poppins-Bold.ttf"),
   });
 
   if (!fontsLoaded) {

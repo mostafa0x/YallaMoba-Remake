@@ -32,7 +32,7 @@ const Style = StyleSheet.create({
   txtNotHave: {
     textAlign: "center",
     fontSize: rf(17),
-    fontFamily: Fonts.Inter,
+    fontFamily: Fonts.PoppinsMedium,
     fontWeight: "medium",
     color: Colors.TextColor,
   },
