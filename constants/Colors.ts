@@ -10,4 +10,8 @@ export const Colors = {
   customInputBackColor: "#635A8F",
   customInputText: "#FFFFFF",
   magnify: "#ffffff",
+  ReelListBack: "rgba(109, 74, 205, 0.5)",
+  txtAgoTime: "rgba(255, 255, 255, 0.7)",
+  menuInReelList: "#ffffff",
+  reactionTxt: "#E5D7F7",
 };

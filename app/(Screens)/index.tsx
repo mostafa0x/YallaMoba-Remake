@@ -1,5 +1,6 @@
 import CustomInputField from "@/components/Fields/CustomInputField";
 import ListFriendsHome from "@/components/ListFriends/ListFriendsHome";
+import ReelListCard from "@/components/ReelList/Card";
 import { rh, rw } from "@/utils/dimensions";
 import React from "react";
 import { StyleSheet, View } from "react-native";
@@ -13,7 +14,9 @@ export default function HomeScreen() {
       <View style={Style.listFriend}>
         <ListFriendsHome />
       </View>
-      <View style={Style.contant}></View>
+      <View style={Style.contant}>
+        <ReelListCard />
+      </View>
     </View>
   );
 }
@@ -31,6 +34,8 @@ const Style = StyleSheet.create({
     marginLeft: rw(32),
   },
   contant: {
-    marginHorizontal: rw(32),
+    marginTop: rh(145),
+    marginLeft: rw(32),
+    marginRight: rw(19),
   },
 });
