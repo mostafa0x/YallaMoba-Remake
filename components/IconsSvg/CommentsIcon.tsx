@@ -38,5 +38,4 @@ const CommentsIcon = (props: SvgProps) => (
     </Defs>
   </Svg>
 );
-const Memo = memo(CommentsIcon);
-export default Memo;
+export default memo(CommentsIcon);

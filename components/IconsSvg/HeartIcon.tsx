@@ -34,5 +34,4 @@ const HeartIcon = ({ width = rw(24), height = rh(24), ...props }: SvgProps) => (
   </Svg>
 );
 
-const Memo = memo(HeartIcon);
-export default Memo;
+export default memo(HeartIcon);
