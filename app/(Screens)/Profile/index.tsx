@@ -5,11 +5,13 @@ import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
 import { rf, rh, rw } from "@/utils/dimensions";
 import { Image } from "expo-image";
+import { useRouter } from "expo-router";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Icon } from "react-native-paper";
 
 export default function Profile() {
+  const router = useRouter();
   return (
     <View style={styles.container}>
       {/*AppBar */}
@@ -19,7 +21,8 @@ export default function Profile() {
             <BackIcon width={rw(11)} height={rh(30)} />
           </TouchableOpacity>
         </View>
-        <TouchableOpacity>
+
+        <TouchableOpacity onPress={() => router.push("/Settings")}>
           <Icon
             size={rf(30)}
             color={Colors.menuInReelList}
@@ -28,6 +31,7 @@ export default function Profile() {
         </TouchableOpacity>
       </View>
       {/*Header Info*/}
+
       <View style={styles.header}>
         <AvatarIcon size={84} />
         <View style={styles.infoBox}>

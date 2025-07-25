@@ -16,6 +16,7 @@ export default function RoleSelector({ setIsOpenMenu, isOpenMenu }: props) {
       title="Select Your Role"
       titleStyle={Style.title}
       style={Style.mainlist}
+      expanded={isOpenMenu}
       theme={{ colors: { background: "transparent" } }}
       onPress={() =>
         setIsOpenMenu((prev: boolean) => (prev == true ? false : true))
@@ -23,7 +24,10 @@ export default function RoleSelector({ setIsOpenMenu, isOpenMenu }: props) {
     >
       {Roles.current.map((role, index: number) => (
         <List.Item
-          onPress={() => console.log(role)}
+          onPress={() => {
+            console.log(role);
+            setIsOpenMenu(false);
+          }}
           key={index}
           title={role}
           titleStyle={Style.title}
@@ -44,6 +48,7 @@ const Style = StyleSheet.create({
     borderWidth: 3,
     borderRadius: rw(25),
     borderColor: Colors.boderColor,
+    width: rw(200),
   },
   list: {
     gap: 200,
