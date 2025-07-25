@@ -20,7 +20,7 @@ export default function LandingPage() {
       <Shadow
         distance={16}
         startColor="rgba(0,0,0,0.60)"
-        offset={[0, rh(560)]}
+        offset={[0, rh(550)]}
         style={{ borderRadius: rw(40) }}
       >
         <View style={Style.continer}>
@@ -50,7 +50,7 @@ const Style = StyleSheet.create({
   },
   continer: {
     position: "absolute",
-    top: rh(560),
+    top: rh(555),
     width: rw(390),
     height: rh(400),
     borderWidth: 1,

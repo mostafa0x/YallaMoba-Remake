@@ -26,7 +26,6 @@ export default function RoleSelector({ setIsOpenMenu, isOpenMenu }: props) {
       {Roles.current.map((role, index: number) => (
         <List.Item
           onPress={() => {
-            console.log(role);
             setIsOpenMenu(false);
           }}
           key={index}
@@ -47,16 +46,15 @@ const Style = StyleSheet.create({
   },
   mainlist: {
     backgroundColor: "transparent",
-    elevation: 0,
-    borderWidth: 3,
+    borderWidth: rw(3),
     borderRadius: rw(25),
     borderColor: Colors.boderColor,
     width: rw(200),
+    height: rh(53),
   },
   list: {
-    gap: 200,
     backgroundColor: "#635A8F",
     borderRadius: rw(10),
-    marginVertical: rh(10),
+    marginVertical: rh(4),
   },
 });

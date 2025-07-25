@@ -1,0 +1,45 @@
+export default {
+  expo: {
+    name: "YallaMoba",
+    slug: "YallaMoba",
+    version: "1.0.0",
+    orientation: "portrait",
+    icon: "./assets/images/icon.png",
+    scheme: "yallamoba",
+    userInterfaceStyle: "automatic",
+    newArchEnabled: true,
+    ios: {
+      supportsTablet: true,
+    },
+    android: {
+      adaptiveIcon: {
+        foregroundImage: "./assets/images/adaptive-icon.png",
+        backgroundColor: "#ffffff",
+      },
+      edgeToEdgeEnabled: true,
+      package: "com.mostafa_ahmed.YallaMoba",
+    },
+    web: {
+      bundler: "metro",
+      output: "static",
+      favicon: "./assets/images/favicon.png",
+    },
+    plugins: [
+      "expo-router",
+      [
+        "expo-build-properties",
+        {
+          android: {
+            navigationBarBackgroundColor: "transparent",
+            // ممكن تضيف حاجات تانية هنا زي:
+            navigationBarButtonStyle: "light",
+            // navigationBarVisibility: "immersiveSticky"
+          },
+        },
+      ],
+    ],
+    experiments: {
+      typedRoutes: true,
+    },
+  },
+};
