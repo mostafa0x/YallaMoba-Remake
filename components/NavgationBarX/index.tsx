@@ -62,7 +62,7 @@ export default function NavBar() {
           style={{ position: "absolute", bottom: rh(15), right: rw(20) }}
         >
           <ProfileIcon
-            isActive={pathName == "/Proflie" ? true : false}
+            isActive={pathName == "/Profile" ? true : false}
             width={rw(40)}
             height={rh(40)}
           />

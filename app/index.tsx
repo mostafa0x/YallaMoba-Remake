@@ -17,7 +17,7 @@ export default function HomeScreen() {
       </View>
 
       <View style={Style.contant}>
-        <ReelListCard />
+        <ReelListCard calledFromHome={true} />
       </View>
     </View>
   );

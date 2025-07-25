@@ -5,32 +5,29 @@ import { rf, rh, rw } from "@/utils/dimensions";
 import React, { memo } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-function ItemListFriedns() {
+function SearchListItem() {
   return (
     <View style={styles.container}>
-      <AvatarIcon size={58} />
-      <View style={styles.txtContainer}>
-        <Text style={styles.name}>name Player</Text>
-      </View>
+      <AvatarIcon size={60} />
+      <Text style={styles.playerName}>Name</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    width: rw(66),
-    height: rh(100),
+    flexDirection: "row",
+    gap: rw(4),
+    alignItems: "center",
+    marginLeft: rw(34),
+    marginRight: rw(20),
+    marginTop: rh(13),
   },
-  txtContainer: {},
-
-  name: {
-    textAlign: "center",
-    width: "100%",
-    marginTop: rh(4.5),
-    fontSize: rf(12),
-    fontFamily: Fonts.PoppinsMedium,
+  playerName: {
+    fontFamily: Fonts.PoppinsBold,
     color: Colors.TextColor,
+    fontSize: rf(18),
   },
 });
 
-export default memo(ItemListFriedns);
+export default memo(SearchListItem);

@@ -20,7 +20,7 @@ function ReelListCard({ calledFromHome }: { calledFromHome: boolean }) {
           estimatedItemSize={417}
           renderItem={() => <ReelListItems />}
           ListHeaderComponent={() => {
-            return <DeatilsProfile />;
+            return calledFromHome ? null : <DeatilsProfile />;
           }}
         />
       </View>

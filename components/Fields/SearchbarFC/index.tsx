@@ -1,19 +1,28 @@
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
 import { rf, rw } from "@/utils/dimensions";
+import { usePathname, useRouter } from "expo-router";
 import React, { memo } from "react";
 import { StyleSheet, View } from "react-native";
 import { Searchbar } from "react-native-paper";
 
-function SearchbarFC() {
+function SearchbarFC({ placeholder = "Explore" }: { placeholder: string }) {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = React.useState("");
+  const pathName = usePathname();
+
+  const Seraching = () => {
+    router.push({ pathname: "/Search", params: { keyWord: searchQuery } });
+  };
 
   return (
     <View style={styles.container}>
       <Searchbar
+        onIconPress={Seraching}
+        onSubmitEditing={Seraching}
         inputStyle={styles.input}
         style={{ backgroundColor: Colors.customInputBackColor }}
-        placeholder="Explore"
+        placeholder={placeholder}
         placeholderTextColor={Colors.magnify}
         onChangeText={setSearchQuery}
         value={searchQuery}
