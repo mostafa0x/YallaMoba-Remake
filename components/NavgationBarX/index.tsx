@@ -19,6 +19,7 @@ export default function NavBar() {
         left: 0,
         width: "100%",
         height: rf(90),
+        zIndex: 50,
       }}
     >
       <View
@@ -57,7 +58,7 @@ export default function NavBar() {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => pathName !== "/Proflie" && router.push("/SignUp")}
+          onPress={() => pathName !== "/Proflie" && router.push("/Profile")}
           style={{ position: "absolute", bottom: rh(15), right: rw(20) }}
         >
           <ProfileIcon

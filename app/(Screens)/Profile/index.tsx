@@ -1,10 +1,10 @@
 import AvatarIcon from "@/components/AvatarIcon";
 import BackIcon from "@/components/IconsSvg/BackIcon";
-import EditIcon from "@/components/IconsSvg/EditIcon";
 import ReelListCard from "@/components/ReelList/Card";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
 import { rf, rh, rw } from "@/utils/dimensions";
+import { Image } from "expo-image";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Icon } from "react-native-paper";
@@ -32,9 +32,13 @@ export default function Profile() {
         <AvatarIcon size={84} />
         <View style={styles.infoBox}>
           <Text style={styles.namePlayer}>Player Name</Text>
-          <TouchableOpacity>
+          {/* <TouchableOpacity>
             <EditIcon />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
+          <Image
+            style={styles.RoleImg}
+            source={require("../../../assets/RoleIcons/jg.webp")}
+          />
         </View>
       </View>
       {/*Contant*/}
@@ -80,5 +84,9 @@ const styles = StyleSheet.create({
     marginTop: rh(10),
     alignItems: "center",
     marginLeft: rw(31),
+  },
+  RoleImg: {
+    width: rw(25),
+    height: rh(25),
   },
 });

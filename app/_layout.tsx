@@ -4,6 +4,8 @@ import { store } from "@/lib/store";
 import { useFonts } from "expo-font";
 import { Slot } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { PaperProvider } from "react-native-paper";
 import "react-native-reanimated";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { Provider } from "react-redux";
@@ -27,15 +29,19 @@ export default function RootLayout() {
 
   return (
     <Provider store={store}>
-      <SafeAreaProvider>
-        <LinearView>
-          <SafeAreaView style={{ flex: 1 }}>
-            <Slot />
-            <NavBar />
-            <StatusBar style="light" />
-          </SafeAreaView>
-        </LinearView>
-      </SafeAreaProvider>
+      <PaperProvider>
+        <GestureHandlerRootView>
+          <SafeAreaProvider>
+            <LinearView>
+              <SafeAreaView style={{ flex: 1 }}>
+                <Slot />
+                <NavBar />
+                <StatusBar style="light" />
+              </SafeAreaView>
+            </LinearView>
+          </SafeAreaProvider>
+        </GestureHandlerRootView>
+      </PaperProvider>
     </Provider>
   );
 }

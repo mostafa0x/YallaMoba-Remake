@@ -1,7 +1,7 @@
 export const Colors = {
   LandingContiner: "#CB98EB",
   BtnColor: "#635A8F",
-  BtnTxtColor: "white",
+  BtnTxtColor: "#FFFFFF",
   txtYallaMoba: "#6242C8",
   boderColor: "#FFFFFF",
   TextColor: "#FFFFFF",
@@ -17,4 +17,8 @@ export const Colors = {
   isActiveIcon: "#635A8F",
   unActiveIcon: "#C0C0C0",
   playerNameProfile: "#3B21B2",
+  CommenitBack: "#635A8F",
+  commentContant: "rgba(217, 217, 217, 0.8)",
+  commentName: "#6D4ACD",
+  reactionCommentTxt: "#D1D1D1",
 };

@@ -30,7 +30,7 @@ export default function LandingPage() {
             just like you. Let the fun begin
           </Text>
           <View style={{ marginTop: rh(60) }}>
-            <Btn context="Get Started" />
+            <Btn Width={320} context="Get Started" />
           </View>
         </View>
       </Shadow>
