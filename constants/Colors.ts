@@ -21,4 +21,5 @@ export const Colors = {
   commentContant: "rgba(217, 217, 217, 0.8)",
   commentName: "#6D4ACD",
   reactionCommentTxt: "#D1D1D1",
+  UploadIcon: "#a078b9",
 };

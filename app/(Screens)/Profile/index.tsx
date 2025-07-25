@@ -37,7 +37,7 @@ export default function Profile() {
           </TouchableOpacity> */}
           <Image
             style={styles.RoleImg}
-            source={require("../../../assets/RoleIcons/jg.webp")}
+            source={require("../../../assets/RoleIcons/mid.webp")}
           />
         </View>
       </View>

@@ -8,17 +8,30 @@ import { Icon } from "react-native-paper";
 interface props {
   name: string;
   label: string;
+  width: number;
 }
-function InputText({ name, label }: props) {
+function InputText({ name, label, width = 323 }: props) {
   const isPassword = ["password", "repassword"].includes(name);
   const [isShowPassword, setIsShowPassword] = useState(false);
   return (
-    <View style={Style.inputContiner}>
+    <View
+      style={{
+        width: rw(width),
+        borderWidth: rw(2.96),
+        borderColor: Colors.boderColor,
+        borderRadius: rw(29),
+        alignItems: "center",
+        height: rh(53),
+        flexDirection: "row",
+        justifyContent: "space-between",
+        paddingHorizontal: rw(19),
+      }}
+    >
       <TextInput
         style={Style.input}
         placeholderTextColor={"white"}
         placeholder={label}
-        secureTextEntry={!isShowPassword}
+        secureTextEntry={isPassword && !isShowPassword}
       />
       {isPassword && (
         <TouchableOpacity
@@ -38,17 +51,6 @@ function InputText({ name, label }: props) {
 }
 
 const Style = StyleSheet.create({
-  inputContiner: {
-    borderWidth: rw(2.96),
-    borderColor: Colors.boderColor,
-    borderRadius: rw(29),
-    alignItems: "center",
-    width: rw(323),
-    height: rh(53),
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: rw(19),
-  },
   input: {
     width: "90%",
     fontSize: rf(17),

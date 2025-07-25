@@ -52,6 +52,7 @@ export default function NavBar() {
         </TouchableOpacity>
 
         <TouchableOpacity
+          onPress={() => pathName !== "/Upload" && router.push("/Upload")}
           style={{ position: "absolute", bottom: rh(40), left: rw(120) }}
         >
           <PlusIcon width={rw(70)} height={rh(70)} />

@@ -10,7 +10,7 @@ export default function HomeScreen() {
     <View style={Style.contianer}>
       <View style={Style.appBar}>
         {/* <CustomInputField name={"Explore"} label={"Explore"} /> */}
-        <SearchbarFC />
+        <SearchbarFC placeholder="Explore" />
       </View>
       <View style={Style.listFriend}>
         <ListFriendsHome />
