@@ -1,4 +1,4 @@
-import Btn from "@/components/Fields/CustomButton";
+import CustomButton from "@/components/Fields/CustomButton";
 import InputText from "@/components/Fields/InputText";
 import HelpAuth from "@/components/HelperAuth";
 import { Colors } from "@/constants/Colors";
@@ -17,11 +17,15 @@ export default function SignIn() {
         <View style={Style.LoginCard}>
           <Text style={Style.txtSignIn}>Sign in</Text>
           <View style={Style.Fields}>
-            <InputText name={"identifier"} label={"Email/Username"} />
-            <InputText name={"password"} label={"Password"} />
+            <InputText
+              name={"identifier"}
+              label={"Email/Username"}
+              width={323}
+            />
+            <InputText name={"password"} label={"Password"} width={323} />
           </View>
           <View style={{ marginTop: rh(67) }}>
-            <Btn context={"Sign in"} />
+            <CustomButton context={"Sign in"} Width={320} />
           </View>
         </View>
         <View style={Style.helper}>

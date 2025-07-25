@@ -22,6 +22,7 @@ export default function SignUp() {
             <InputText
               key={field}
               name={field}
+              width={323}
               label={field.charAt(0).toUpperCase() + field.slice(1)}
             />
           )
@@ -42,7 +43,7 @@ export default function SignUp() {
             </View>
           </View>
           <View style={Style.btnContainer}>
-            <CustomButton context={"Sign Up"} />
+            <CustomButton context={"Sign Up"} Width={320} />
           </View>
           <View style={Style.helper}>
             <HelpAuth mode="in" />

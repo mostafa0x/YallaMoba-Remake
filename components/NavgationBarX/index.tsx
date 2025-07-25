@@ -10,7 +10,7 @@ import NavBack from "./NavBack";
 export default function NavBar() {
   const router = useRouter();
   const pathName = usePathname();
-  const inAuth = ["/SignIn", "/SignUp"].includes(pathName);
+  const inAuth = ["/SignIn", "/SignUp", "/Landing"].includes(pathName);
   return inAuth ? null : (
     <View
       style={{

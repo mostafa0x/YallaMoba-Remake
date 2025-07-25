@@ -1,6 +1,7 @@
 import LinearView from "@/components/LinearView";
 import NavBar from "@/components/NavgationBarX";
 import { store } from "@/lib/store";
+import Providers from "@/Providers/Providers";
 import { useFonts } from "expo-font";
 import { Slot } from "expo-router";
 import { StatusBar } from "expo-status-bar";
@@ -29,19 +30,21 @@ export default function RootLayout() {
 
   return (
     <Provider store={store}>
-      <PaperProvider>
-        <GestureHandlerRootView>
-          <SafeAreaProvider>
-            <LinearView>
-              <SafeAreaView style={{ flex: 1 }}>
-                <Slot />
-                <NavBar />
-                <StatusBar style="light" />
-              </SafeAreaView>
-            </LinearView>
-          </SafeAreaProvider>
-        </GestureHandlerRootView>
-      </PaperProvider>
+      <Providers>
+        <PaperProvider>
+          <GestureHandlerRootView>
+            <SafeAreaProvider>
+              <LinearView>
+                <SafeAreaView style={{ flex: 1 }}>
+                  <Slot />
+                  <NavBar />
+                  <StatusBar style="light" />
+                </SafeAreaView>
+              </LinearView>
+            </SafeAreaProvider>
+          </GestureHandlerRootView>
+        </PaperProvider>
+      </Providers>
     </Provider>
   );
 }
