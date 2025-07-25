@@ -1,4 +1,5 @@
 import { Colors } from "@/constants/Colors";
+import { Fonts } from "@/constants/Fonts";
 import { rf, rh, rw } from "@/utils/dimensions";
 import React, { useRef } from "react";
 import { StyleSheet } from "react-native";
@@ -42,6 +43,7 @@ const Style = StyleSheet.create({
   title: {
     fontSize: rf(14),
     color: Colors.TextColor,
+    fontFamily: Fonts.PoppinsSemiBold,
   },
   mainlist: {
     backgroundColor: "transparent",

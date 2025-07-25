@@ -19,7 +19,7 @@ export default function EditProflie() {
         </TouchableOpacity>
         <Text style={styles.appBarTxt}>Edit Profile</Text>
       </View>
-      <Divider />
+      <Divider bold style={styles.divider} />
       <View style={styles.contant}>
         <EditAvatar />
         <InputText name={"name"} label={"Username"} width={rw(200)} />
@@ -51,5 +51,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: rh(30),
     gap: rh(50),
+  },
+  divider: {
+    backgroundColor: Colors.divider,
   },
 });

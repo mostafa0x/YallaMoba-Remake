@@ -23,4 +23,5 @@ export const Colors = {
   reactionCommentTxt: "#D1D1D1",
   UploadIcon: "#a078b9",
   EditAvatrBtn: "#B1ACC7",
+  divider: "#FFFFFF",
 };

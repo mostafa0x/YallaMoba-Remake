@@ -20,7 +20,12 @@ function AvatarIcon({ size = 60 }: { size: number }) {
       }}
     >
       <View>
-        <Avatar.Image size={rf(size)} source={{ uri: "" }} />
+        <Avatar.Image
+          size={rf(size)}
+          source={{
+            uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBlNYFmHwzixn-mZOW9UWGgxMvt4Tx0bL_Jw&s",
+          }}
+        />
       </View>
     </LinearGradient>
   );

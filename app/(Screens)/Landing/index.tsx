@@ -29,7 +29,7 @@ export default function LandingPage() {
             Get ready to connect, share , epic moments, and team up with players
             just like you. Let the fun begin
           </Text>
-          <View style={{ marginTop: rh(30) }}>
+          <View style={{ marginTop: rh(5) }}>
             <Btn Width={320} context="Get Started" />
           </View>
         </View>
@@ -56,22 +56,22 @@ const Style = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: Colors.LandingContiner,
     borderRadius: rw(40),
-    paddingVertical: rh(34),
+    paddingVertical: rh(20),
     paddingHorizontal: rw(30),
   },
   mainTxt: {
     fontSize: rf(36),
-    fontFamily: Fonts.InterBold,
+    fontFamily: Fonts.PoppinsBold,
     color: "#FFFFFF",
     textShadowColor: "rgba(0, 0, 0, 0.25)",
     textShadowOffset: { width: 0, height: 4 },
     textShadowRadius: 4,
   },
   secTxt: {
-    paddingTop: rh(16),
+    paddingTop: rh(2),
     paddingLeft: rw(5),
     fontSize: rf(20),
-    fontFamily: Fonts.Inter,
+    fontFamily: Fonts.PoppinsMedium,
     color: "#FFFFFF",
     textShadowColor: "rgba(0, 0, 0, 0.25)",
     textShadowRadius: 4,

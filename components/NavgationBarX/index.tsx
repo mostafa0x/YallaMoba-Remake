@@ -15,8 +15,8 @@ export default function NavBar() {
     <View
       style={{
         position: "absolute",
-        bottom: rh(-40),
-        left: 0,
+        bottom: rh(-67),
+        left: rw(0),
         width: "100%",
         height: rf(90),
         zIndex: 50,
@@ -55,7 +55,7 @@ export default function NavBar() {
 
       <TouchableOpacity
         onPress={() => pathName !== "/Upload" && router.push("/Upload")}
-        style={{ position: "absolute", bottom: rh(130), left: rw(165) }}
+        style={{ position: "absolute", bottom: rh(120), left: rw(165) }}
       >
         <PlusIcon width={rw(70)} height={rh(70)} />
       </TouchableOpacity>

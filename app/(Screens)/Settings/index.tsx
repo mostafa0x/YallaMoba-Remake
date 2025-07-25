@@ -19,7 +19,7 @@ const BtnMenu = React.memo(({ name }: { name: string }) => {
       >
         <Text style={styles.txtBtns}>{name}</Text>
       </TouchableOpacity>
-      <Divider bold />
+      <Divider style={styles.divider} bold />
     </>
   );
 });
@@ -33,7 +33,7 @@ export default function Settings() {
         </TouchableOpacity>
         <Text style={styles.appBarTxt}>Settings</Text>
       </View>
-      <Divider bold />
+      <Divider style={styles.divider} bold />
       <View style={styles.contant}>
         <BtnMenu name={"Edit Profile"} />
         <BtnMenu name={"Log Out"} />
@@ -67,5 +67,8 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.PoppinsSemiBold,
     color: Colors.TextColor,
     fontSize: rf(20),
+  },
+  divider: {
+    backgroundColor: Colors.divider,
   },
 });

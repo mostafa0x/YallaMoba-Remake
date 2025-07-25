@@ -33,7 +33,7 @@ const Style = StyleSheet.create({
   },
   listFriend: {
     marginTop: rh(26),
-    marginLeft: rw(32),
+    //  marginLeft: rw(32),
   },
   contant: {
     marginTop: rh(130),

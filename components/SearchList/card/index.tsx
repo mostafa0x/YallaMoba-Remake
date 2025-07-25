@@ -12,6 +12,7 @@ export default function SearchListCard() {
       data={[1, 3, 3, 5, 6, 1, 3, 3, 5, 6, 3, 5, 6, 7]}
       keyExtractor={(_, index) => index.toString()}
       contentContainerStyle={styles.flashListContiner}
+      estimatedItemSize={93}
       renderItem={() => <SearchListItem />}
       ListEmptyComponent={() => (
         <View style={styles.emptyList}>
@@ -34,6 +35,6 @@ const styles = StyleSheet.create({
     fontSize: rf(24),
   },
   flashListContiner: {
-    paddingBottom: rh(280),
+    paddingBottom: rh(320),
   },
 });
