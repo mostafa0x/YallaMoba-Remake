@@ -7,16 +7,25 @@ import { Fonts } from "@/constants/Fonts";
 import { rf, rh, rw } from "@/utils/dimensions";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Icon } from "react-native-paper";
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
       {/*AppBar */}
       <View style={styles.appBar}>
+        <View style={styles.appBarLeftSide}>
+          <TouchableOpacity>
+            <BackIcon width={rw(11)} height={rh(30)} />
+          </TouchableOpacity>
+        </View>
         <TouchableOpacity>
-          <BackIcon width={rw(11)} height={rh(30)} />
+          <Icon
+            size={rf(30)}
+            color={Colors.menuInReelList}
+            source={"dots-vertical"}
+          />
         </TouchableOpacity>
-        <Text style={styles.namePlayer}>Player Name</Text>
       </View>
       {/*Header Info*/}
       <View style={styles.header}>
@@ -42,7 +51,11 @@ const styles = StyleSheet.create({
     // marginLeft: rw(31),
   },
   appBar: {
-    marginLeft: rw(31),
+    marginHorizontal: rw(16),
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  appBarLeftSide: {
     flexDirection: "row",
     gap: rw(10),
   },
