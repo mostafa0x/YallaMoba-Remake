@@ -12,7 +12,11 @@ function SearchbarFC({ placeholder = "Explore" }: { placeholder: string }) {
   const pathName = usePathname();
 
   const Seraching = () => {
-    router.push({ pathname: "/Search", params: { keyWord: searchQuery } });
+    if (!searchQuery) return;
+    router.push({
+      pathname: "/Search",
+      params: { keyWord: searchQuery },
+    });
   };
 
   return (
