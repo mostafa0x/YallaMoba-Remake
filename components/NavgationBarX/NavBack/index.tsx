@@ -1,4 +1,5 @@
 import * as React from "react";
+import { memo } from "react";
 import Svg, {
   ClipPath,
   Defs,
@@ -9,8 +10,6 @@ import Svg, {
   Stop,
   SvgProps,
 } from "react-native-svg";
-/* SVGR has dropped some elements not supported by react-native-svg: div, filter */
-import { memo } from "react";
 const NavBack = (props: SvgProps) => (
   <Svg width={390} height={73} viewBox="0 0 390 73" fill="none" {...props}>
     <ForeignObject width={430} height={116} x={-20} y={-20}></ForeignObject>

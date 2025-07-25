@@ -29,7 +29,7 @@ export default function LandingPage() {
             Get ready to connect, share , epic moments, and team up with players
             just like you. Let the fun begin
           </Text>
-          <View style={{ marginTop: rh(50) }}>
+          <View style={{ marginTop: rh(30) }}>
             <Btn Width={320} context="Get Started" />
           </View>
         </View>

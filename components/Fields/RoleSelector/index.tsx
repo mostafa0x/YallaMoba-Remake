@@ -1,5 +1,5 @@
 import { Colors } from "@/constants/Colors";
-import { rh, rw } from "@/utils/dimensions";
+import { rf, rh, rw } from "@/utils/dimensions";
 import React, { useRef } from "react";
 import { StyleSheet } from "react-native";
 import { List } from "react-native-paper";
@@ -40,6 +40,7 @@ export default function RoleSelector({ setIsOpenMenu, isOpenMenu }: props) {
 
 const Style = StyleSheet.create({
   title: {
+    fontSize: rf(14),
     color: Colors.TextColor,
   },
   mainlist: {

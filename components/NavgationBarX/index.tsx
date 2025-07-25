@@ -36,39 +36,40 @@ export default function NavBar() {
         style={{
           position: "absolute",
           bottom: rh(70),
-          left: rw(45),
+          left: rw(-15),
         }}
       >
-        <NavBack scaleX={1.4} scaleY={1.3} />
-        <TouchableOpacity
-          onPress={() => pathName !== "/" && router.push("/")}
-          style={{ position: "absolute", bottom: rh(15), left: rw(20) }}
-        >
-          <HomeIcon
-            isActive={pathName == "/" ? true : false}
-            width={rw(40)}
-            height={rh(40)}
-          />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => pathName !== "/Upload" && router.push("/Upload")}
-          style={{ position: "absolute", bottom: rh(40), left: rw(120) }}
-        >
-          <PlusIcon width={rw(70)} height={rh(70)} />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => pathName !== "/Proflie" && router.push("/Profile")}
-          style={{ position: "absolute", bottom: rh(15), right: rw(20) }}
-        >
-          <ProfileIcon
-            isActive={pathName == "/Profile" ? true : false}
-            width={rw(40)}
-            height={rh(40)}
-          />
-        </TouchableOpacity>
+        <NavBack width={rw(420)} height={rh(80)} />
       </View>
+
+      <TouchableOpacity
+        onPress={() => pathName !== "/" && router.push("/")}
+        style={{ position: "absolute", bottom: rh(100), left: rw(50) }}
+      >
+        <HomeIcon
+          isActive={pathName == "/" ? true : false}
+          width={rw(40)}
+          height={rh(40)}
+        />
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => pathName !== "/Upload" && router.push("/Upload")}
+        style={{ position: "absolute", bottom: rh(130), left: rw(165) }}
+      >
+        <PlusIcon width={rw(70)} height={rh(70)} />
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => pathName !== "/Proflie" && router.push("/Profile")}
+        style={{ position: "absolute", bottom: rh(100), right: rw(50) }}
+      >
+        <ProfileIcon
+          isActive={pathName == "/Profile" ? true : false}
+          width={rw(40)}
+          height={rh(40)}
+        />
+      </TouchableOpacity>
     </View>
   );
 }
