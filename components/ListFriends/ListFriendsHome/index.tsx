@@ -1,4 +1,4 @@
-import { rh } from "@/utils/dimensions";
+import { rh, rw } from "@/utils/dimensions";
 import { FlashList } from "@shopify/flash-list";
 import React from "react";
 import { StyleSheet, View } from "react-native";
@@ -13,8 +13,8 @@ export default function ListFriendsHome() {
           ItemSeparatorComponent={() => <View style={styles.ItemSeparator} />}
           data={[1, 2, 3, 4, 5, 6, 7, 8]}
           keyExtractor={(_, index) => index.toString()}
-          estimatedItemSize={66}
-          renderItem={() => <ItemListFriedns />}
+          estimatedItemSize={rw(66)}
+          renderItem={({ item, index }) => <ItemListFriedns key={index} />}
           showsHorizontalScrollIndicator={false}
         />
       </View>
@@ -31,6 +31,6 @@ const styles = StyleSheet.create({
   },
   flashList: {},
   ItemSeparator: {
-    width: 20,
+    width: rw(15),
   },
 });

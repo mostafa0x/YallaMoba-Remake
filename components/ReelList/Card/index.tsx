@@ -17,8 +17,8 @@ function ReelListCard({ calledFromHome }: { calledFromHome: boolean }) {
             <View style={styles.ItemSeparator}></View>
           )}
           data={[1, 2, 1, 2, 1, 2, 1, 2, 1, 2]}
-          estimatedItemSize={417}
-          renderItem={() => <ReelListItems />}
+          estimatedItemSize={rh(417)}
+          renderItem={({ item, index }) => <ReelListItems key={index} />}
           ListHeaderComponent={() => {
             return calledFromHome ? null : <DeatilsProfile />;
           }}

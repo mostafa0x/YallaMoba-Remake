@@ -1,4 +1,5 @@
 import SearchbarFC from "@/components/Fields/SearchbarFC";
+import BackIcon from "@/components/IconsSvg/BackIcon";
 import SearchList from "@/components/SearchList";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
@@ -12,6 +13,7 @@ export default function Serach() {
     <View>
       {/**Header */}
       <View style={styles.header}>
+        <BackIcon width={rw(15)} height={rh(30)} />
         <SearchbarFC placeholder="Search" />
       </View>
       <View style={styles.contant}>
@@ -25,7 +27,10 @@ export default function Serach() {
 const styles = StyleSheet.create({
   header: {
     marginTop: rh(15),
+    marginLeft: rw(31),
     alignItems: "center",
+    flexDirection: "row",
+    gap: rw(30),
   },
   contant: {
     marginTop: rh(25),

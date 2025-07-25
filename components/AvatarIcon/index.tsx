@@ -1,10 +1,10 @@
 import { rf, rh, rw } from "@/utils/dimensions";
 import { LinearGradient } from "expo-linear-gradient";
-import React from "react";
+import React, { memo } from "react";
 import { View } from "react-native";
 import { Avatar } from "react-native-paper";
 
-export default function AvatarIcon({ size = 60 }: { size: number }) {
+function AvatarIcon({ size = 60 }: { size: number }) {
   return (
     <LinearGradient
       colors={["#5334C7", "#C79BE7"]}
@@ -25,3 +25,5 @@ export default function AvatarIcon({ size = 60 }: { size: number }) {
     </LinearGradient>
   );
 }
+
+export default memo(AvatarIcon);

@@ -1,41 +1,17 @@
-import AvatarIcon from "@/components/AvatarIcon";
+import HeaderInfo from "@/components/HeaderInfo";
 import ReactionsReel from "@/components/ReelList/ReactionsReel";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
 import { rf, rh, rw } from "@/utils/dimensions";
 import React, { memo } from "react";
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import { Icon } from "react-native-paper";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import ReelCard from "../ReelCard";
 
 function ReelListItems() {
   return (
     <View style={styles.container}>
       {/*Header */}
-      <View style={styles.headerContainer}>
-        <View style={styles.headerContainerLeft}>
-          <AvatarIcon size={60} />
-          <View>
-            <Text style={styles.name}>NamePlayer</Text>
-            <Text style={styles.agoTime}>5 minute</Text>
-          </View>
-        </View>
-        <View>
-          <TouchableOpacity>
-            <Icon
-              size={rf(30)}
-              color={Colors.menuInReelList}
-              source={"dots-vertical"}
-            />
-          </TouchableOpacity>
-        </View>
-      </View>
+      <HeaderInfo />
       {/*Des */}
       <View style={styles.des}>
         <ScrollView>

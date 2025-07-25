@@ -1,5 +1,5 @@
-import AvatarIcon from "@/components/AvatarIcon";
 import CustomButton from "@/components/Fields/CustomButton";
+import EditAvatar from "@/components/Fields/EditAvatar";
 import InputText from "@/components/Fields/InputText";
 import RoleSelector from "@/components/Fields/RoleSelector";
 import { Colors } from "@/constants/Colors";
@@ -21,7 +21,7 @@ export default function EditProflie() {
       </View>
       <Divider />
       <View style={styles.contant}>
-        <AvatarIcon size={100} />
+        <EditAvatar />
         <InputText name={"name"} label={"Username"} width={rw(200)} />
         <RoleSelector isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} />
         {!isOpenMenu && <CustomButton context={"Save Edits"} Width={170} />}
