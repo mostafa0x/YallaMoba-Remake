@@ -20,7 +20,7 @@ function ReelListItems() {
       {/*Header */}
       <View style={styles.headerContainer}>
         <View style={styles.headerContainerLeft}>
-          <AvatarIcon />
+          <AvatarIcon size={60} />
           <View>
             <Text style={styles.name}>NamePlayer</Text>
             <Text style={styles.agoTime}>5 minute</Text>
