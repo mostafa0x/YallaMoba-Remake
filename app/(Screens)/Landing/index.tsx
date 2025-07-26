@@ -5,11 +5,12 @@ import { rf, rh, rw } from "@/utils/dimensions";
 import { Image } from "expo-image";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import * as Animatable from "react-native-animatable";
 import { Shadow } from "react-native-shadow-2";
 
 export default function LandingPage() {
   return (
-    <View style={{}}>
+    <Animatable.View animation="fadeInUp" direction="alternate" style={{}}>
       <View style={Style.mainContiner}>
         <Image
           style={Style.img}
@@ -34,7 +35,7 @@ export default function LandingPage() {
           </View>
         </View>
       </Shadow>
-    </View>
+    </Animatable.View>
   );
 }
 

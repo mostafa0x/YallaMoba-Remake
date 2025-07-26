@@ -4,6 +4,7 @@ import { rf, rh, rw } from "@/utils/dimensions";
 import { useRouter } from "expo-router";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import * as Animatable from "react-native-animatable";
 import { Divider, Icon } from "react-native-paper";
 
 const BtnMenu = React.memo(({ name }: { name: string }) => {
@@ -26,7 +27,11 @@ const BtnMenu = React.memo(({ name }: { name: string }) => {
 
 export default function Settings() {
   return (
-    <View style={styles.container}>
+    <Animatable.View
+      animation="fadeInUp"
+      direction="alternate"
+      style={styles.container}
+    >
       <View style={styles.appBar}>
         <TouchableOpacity>
           <Icon color="white" size={rf(40)} source={"arrow-left"} />
@@ -38,7 +43,7 @@ export default function Settings() {
         <BtnMenu name={"Edit Profile"} />
         <BtnMenu name={"Log Out"} />
       </View>
-    </View>
+    </Animatable.View>
   );
 }
 

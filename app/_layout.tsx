@@ -1,10 +1,13 @@
 import LinearView from "@/components/LinearView";
 import NavBar from "@/components/NavgationBarX";
+import SplashScreen from "@/components/SplashScreen";
 import { store } from "@/lib/store";
 import Providers from "@/Providers/Providers";
 import { useFonts } from "expo-font";
+import * as NavigationBar from "expo-navigation-bar";
 import { Slot } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { useEffect, useState } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { PaperProvider } from "react-native-paper";
 import "react-native-reanimated";
@@ -24,15 +27,36 @@ export default function RootLayout() {
     "Poppins-SemiBold": require("../assets/fonts/Poppins-SemiBold.ttf"),
   });
 
+  const [Loading, setLoading] = useState(true);
+  useEffect(() => {
+    const Nav = async () => {
+      await NavigationBar.setVisibilityAsync("hidden");
+      await NavigationBar.setButtonStyleAsync("light");
+    };
+
+    Nav();
+  }, []);
+  useEffect(() => {
+    if (!fontsLoaded) return;
+    const time = setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+    return () => {
+      clearTimeout(time);
+    };
+  }, [fontsLoaded]);
+
   if (!fontsLoaded) {
-    return null;
+    return <SplashScreen />;
   }
 
-  return (
+  return Loading ? (
+    <SplashScreen />
+  ) : (
     <Provider store={store}>
       <Providers>
         <PaperProvider>
-          <GestureHandlerRootView>
+          <GestureHandlerRootView style={{ flex: 1 }}>
             <SafeAreaProvider>
               <LinearView>
                 <SafeAreaView style={{ flex: 1 }}>

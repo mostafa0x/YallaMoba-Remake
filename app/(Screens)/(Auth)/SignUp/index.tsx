@@ -8,11 +8,16 @@ import { Fonts } from "@/constants/Fonts";
 import { rf, rh, rw } from "@/utils/dimensions";
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import * as Animatable from "react-native-animatable";
 
 export default function SignUp() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   return (
-    <View style={Style.mainContainer}>
+    <Animatable.View
+      animation="fadeInUp"
+      direction="alternate"
+      style={Style.mainContainer}
+    >
       <View style={Style.labelContainer}>
         <Text style={Style.label}>Sign up</Text>
       </View>
@@ -50,7 +55,7 @@ export default function SignUp() {
           </View>
         </>
       )}
-    </View>
+    </Animatable.View>
   );
 }
 

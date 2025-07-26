@@ -4,10 +4,15 @@ import ReelListCard from "@/components/ReelList/Card";
 import { rh, rw } from "@/utils/dimensions";
 import React from "react";
 import { StyleSheet, View } from "react-native";
+import * as Animatable from "react-native-animatable";
 
 export default function HomeScreen() {
   return (
-    <View style={Style.contianer}>
+    <Animatable.View
+      animation="fadeInUp"
+      direction="alternate"
+      style={Style.contianer}
+    >
       <View style={Style.appBar}>
         {/* <CustomInputField name={"Explore"} label={"Explore"} /> */}
         <SearchbarFC placeholder="Explore" />
@@ -19,7 +24,7 @@ export default function HomeScreen() {
       <View style={Style.contant}>
         <ReelListCard calledFromHome={true} />
       </View>
-    </View>
+    </Animatable.View>
   );
 }
 

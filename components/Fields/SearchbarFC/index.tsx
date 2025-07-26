@@ -2,14 +2,29 @@ import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
 import { rf, rw } from "@/utils/dimensions";
 import { usePathname, useRouter } from "expo-router";
-import React, { memo } from "react";
-import { StyleSheet, View } from "react-native";
+import React, { memo, useEffect } from "react";
+import { StyleSheet } from "react-native";
+import * as Animatable from "react-native-animatable";
 import { Searchbar } from "react-native-paper";
 
-function SearchbarFC({ placeholder = "Explore" }: { placeholder: string }) {
+function SearchbarFC({
+  placeholder = "Explore",
+  keyWord,
+}: {
+  placeholder: string;
+  keyWord?: string;
+}) {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = React.useState("");
   const pathName = usePathname();
+
+  useEffect(() => {
+    if (keyWord) {
+      setSearchQuery(keyWord);
+    }
+
+    return () => {};
+  }, []);
 
   const Seraching = () => {
     if (!searchQuery) return;
@@ -20,7 +35,11 @@ function SearchbarFC({ placeholder = "Explore" }: { placeholder: string }) {
   };
 
   return (
-    <View style={styles.container}>
+    <Animatable.View
+      animation="fadeInLeft"
+      duration={800}
+      style={styles.container}
+    >
       <Searchbar
         onIconPress={Seraching}
         onSubmitEditing={Seraching}
@@ -32,7 +51,7 @@ function SearchbarFC({ placeholder = "Explore" }: { placeholder: string }) {
         value={searchQuery}
         iconColor={Colors.magnify}
       />
-    </View>
+    </Animatable.View>
   );
 }
 

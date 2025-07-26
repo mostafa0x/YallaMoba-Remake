@@ -27,14 +27,10 @@ export default {
     plugins: [
       "expo-router",
       [
-        "expo-build-properties",
+        "expo-video",
         {
-          android: {
-            navigationBarBackgroundColor: "transparent",
-            // ممكن تضيف حاجات تانية هنا زي:
-            navigationBarButtonStyle: "light",
-            // navigationBarVisibility: "immersiveSticky"
-          },
+          supportsBackgroundPlayback: true,
+          supportsPictureInPicture: true,
         },
       ],
     ],

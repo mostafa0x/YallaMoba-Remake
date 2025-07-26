@@ -7,12 +7,17 @@ import { Fonts } from "@/constants/Fonts";
 import { rf, rh, rw } from "@/utils/dimensions";
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import * as Animatable from "react-native-animatable";
 import { Divider, Icon } from "react-native-paper";
 
 export default function EditProflie() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   return (
-    <View style={styles.container}>
+    <Animatable.View
+      animation="fadeInUp"
+      direction="alternate"
+      style={styles.container}
+    >
       <View style={styles.appBar}>
         <TouchableOpacity>
           <Icon color="white" size={rf(40)} source={"arrow-left"} />
@@ -26,7 +31,7 @@ export default function EditProflie() {
         <RoleSelector isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} />
         {!isOpenMenu && <CustomButton context={"Save Edits"} Width={170} />}
       </View>
-    </View>
+    </Animatable.View>
   );
 }
 

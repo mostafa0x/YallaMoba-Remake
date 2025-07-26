@@ -6,10 +6,11 @@ import { Fonts } from "@/constants/Fonts";
 import { rf, rh, rw } from "@/utils/dimensions";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import * as Animatable from "react-native-animatable";
 
 export default function SignIn() {
   return (
-    <View>
+    <Animatable.View animation="fadeInUp" direction="alternate">
       <View style={Style.containerTxt}>
         <Text style={Style.txtYalla}>Yalla Moba</Text>
       </View>
@@ -32,7 +33,7 @@ export default function SignIn() {
           <HelpAuth mode="up" />
         </View>
       </View>
-    </View>
+    </Animatable.View>
   );
 }
 

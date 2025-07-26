@@ -8,12 +8,17 @@ import { Image } from "expo-image";
 import { useRouter } from "expo-router";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import * as Animatable from "react-native-animatable";
 import { Icon } from "react-native-paper";
 
 export default function Profile() {
   const router = useRouter();
   return (
-    <View style={styles.container}>
+    <Animatable.View
+      animation="fadeInUp"
+      direction="alternate"
+      style={styles.container}
+    >
       {/*AppBar */}
       <View style={styles.appBar}>
         <View style={styles.appBarLeftSide}>
@@ -49,7 +54,7 @@ export default function Profile() {
       <View style={styles.contant}>
         <ReelListCard calledFromHome={false} />
       </View>
-    </View>
+    </Animatable.View>
   );
 }
 

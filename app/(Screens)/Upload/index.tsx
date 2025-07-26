@@ -6,6 +6,7 @@ import { rf, rh, rw } from "@/utils/dimensions";
 import { Image } from "expo-image";
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import * as Animatable from "react-native-animatable";
 import { Icon } from "react-native-paper";
 
 const BtnUpload = ({ setStages }: any) => {
@@ -24,14 +25,22 @@ const BtnUpload = ({ setStages }: any) => {
 };
 const FristStage = ({ setStages }: any) => {
   return (
-    <View style={styles.center}>
+    <Animatable.View
+      animation="fadeInUp"
+      direction="alternate"
+      style={styles.center}
+    >
       <BtnUpload setStages={setStages} />
-    </View>
+    </Animatable.View>
   );
 };
 const SecStage = ({ setStages }: any) => {
   return (
-    <View style={styles.Seccenter}>
+    <Animatable.View
+      animation="fadeInUp"
+      direction="alternate"
+      style={styles.Seccenter}
+    >
       <View style={styles.containerSec}>
         <View style={styles.input}>
           <InputText width={270} name={"des"} label={"info"} />
@@ -50,21 +59,25 @@ const SecStage = ({ setStages }: any) => {
           <CustomButton context={"Upload"} Width={200} />
         </View>
       </View>
-    </View>
+    </Animatable.View>
   );
 };
 
 export default function Upload() {
   const [Stages, setStages] = useState(1);
   return (
-    <View style={styles.container}>
+    <Animatable.View
+      animation="fadeInUp"
+      direction="alternate"
+      style={styles.container}
+    >
       {/* <FristStage /> */}
       {Stages == 1 ? (
         <FristStage setStages={setStages} />
       ) : (
         <SecStage setStages={setStages} />
       )}
-    </View>
+    </Animatable.View>
   );
 }
 
