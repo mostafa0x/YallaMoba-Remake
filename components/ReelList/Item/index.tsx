@@ -2,33 +2,41 @@ import HeaderInfo from "@/components/HeaderInfo";
 import ReactionsReel from "@/components/ReelList/ReactionsReel";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
+import { StateType } from "@/types/store/StateType";
 import { rf, rh, rw } from "@/utils/dimensions";
+import { Skeleton } from "moti/skeleton";
 import React, { memo } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { useSelector } from "react-redux";
 import ReelCard from "../ReelCard";
 
 function ReelListItems() {
+  const { isLoadingPage } = useSelector((state: StateType) => state.AppReducer);
   return (
     <View style={styles.container}>
       {/*Header */}
-      <HeaderInfo />
+      <HeaderInfo isLoadingPage={isLoadingPage} />
       {/*Des */}
       <View style={styles.des}>
-        <ScrollView>
-          <Text numberOfLines={2} ellipsizeMode="tail" style={styles.desTxt}>
-            hi dsajdksajlcj ldvj hlsdf fdsfjdslk ... hi dsajdksajlcj ldvj hlsdf
-            fdsfjdslk ... hi dsajdksajlcj ldvj hlsdf fdsfjdslk ... hi
-            dsajdksajlcj ldvj hlsdf fdsfjdslk ... hi dsajdksajlcj ldvj hlsdf
-            fdsfjdslk ... hi dsajdksajlcj ldvj hlsdf fdsfjdslk
-          </Text>
-        </ScrollView>
+        {isLoadingPage ? (
+          <Skeleton show={isLoadingPage} width={"100%"}></Skeleton>
+        ) : (
+          <ScrollView>
+            <Text numberOfLines={2} ellipsizeMode="tail" style={styles.desTxt}>
+              hi dsajdksajlcj ldvj hlsdf fdsfjdslk ... hi dsajdksajlcj ldvj
+              hlsdf fdsfjdslk ... hi dsajdksajlcj ldvj hlsdf fdsfjdslk ... hi
+              dsajdksajlcj ldvj hlsdf fdsfjdslk ... hi dsajdksajlcj ldvj hlsdf
+              fdsfjdslk ... hi dsajdksajlcj ldvj hlsdf fdsfjdslk
+            </Text>
+          </ScrollView>
+        )}
       </View>
       {/*Reel */}
       <View style={styles.reelCard}>
-        <ReelCard />
+        <ReelCard isLoadingPage={isLoadingPage} />
       </View>
       {/*Reactions */}
-      <ReactionsReel />
+      {isLoadingPage ? null : <ReactionsReel />}
     </View>
   );
 }

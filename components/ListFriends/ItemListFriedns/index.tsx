@@ -1,16 +1,30 @@
 import AvatarIcon from "@/components/AvatarIcon";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
+import { StateType } from "@/types/store/StateType";
 import { rf, rh, rw } from "@/utils/dimensions";
+import { Skeleton } from "moti/skeleton";
 import React, { memo } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { useSelector } from "react-redux";
 
 function ItemListFriedns() {
+  const { isLoadingPage } = useSelector((state: StateType) => state.AppReducer);
   return (
     <View style={styles.container}>
-      <AvatarIcon size={58} />
+      <AvatarIcon isLoading={isLoadingPage} size={58} />
       <View style={styles.txtContainer}>
-        <Text style={styles.name}>name Player</Text>
+        {isLoadingPage ? (
+          <Skeleton
+            width={"100%"}
+            height={rh(12)}
+            transition={{
+              type: "spring",
+            }}
+          />
+        ) : (
+          <Text style={styles.name}>name Player</Text>
+        )}
       </View>
     </View>
   );
@@ -21,7 +35,9 @@ const styles = StyleSheet.create({
     width: rw(66),
     height: rh(100),
   },
-  txtContainer: {},
+  txtContainer: {
+    marginTop: rh(5),
+  },
 
   name: {
     textAlign: "center",

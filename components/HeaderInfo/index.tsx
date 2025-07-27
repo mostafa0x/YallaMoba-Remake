@@ -1,29 +1,36 @@
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
 import { rf, rw } from "@/utils/dimensions";
+import { Skeleton } from "moti/skeleton";
 import React, { memo } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Icon } from "react-native-paper";
 import AvatarIcon from "../AvatarIcon";
 
-function HeaderInfo() {
+function HeaderInfo({ isLoadingPage }: { isLoadingPage: boolean }) {
   return (
     <View style={styles.headerContainer}>
       <View style={styles.headerContainerLeft}>
-        <AvatarIcon size={60} />
+        <AvatarIcon isLoading={isLoadingPage} size={60} />
         <View>
-          <Text style={styles.name}>NamePlayer</Text>
-          <Text style={styles.agoTime}>5 minute</Text>
+          {isLoadingPage ? (
+            <Skeleton width={rw(100)} show={true}></Skeleton>
+          ) : (
+            <Text style={styles.name}>NamePlayer</Text>
+          )}
+          {!isLoadingPage && <Text style={styles.agoTime}>5 minute</Text>}
         </View>
       </View>
       <View>
-        <TouchableOpacity>
-          <Icon
-            size={rf(30)}
-            color={Colors.menuInReelList}
-            source={"dots-vertical"}
-          />
-        </TouchableOpacity>
+        {!isLoadingPage && (
+          <TouchableOpacity>
+            <Icon
+              size={rf(30)}
+              color={Colors.menuInReelList}
+              source={"dots-vertical"}
+            />
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );

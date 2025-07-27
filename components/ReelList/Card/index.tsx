@@ -5,22 +5,30 @@ import { StyleSheet, View } from "react-native";
 import DeatilsProfile from "../DeatilsProfile";
 import ReelListItems from "../Item";
 
-function ReelListCard({ calledFromHome }: { calledFromHome: boolean }) {
+function ReelListCard({
+  calledFromHome,
+  isLoadingPage,
+}: {
+  calledFromHome: boolean;
+  isLoadingPage: boolean;
+}) {
   return (
     <View style={styles.container}>
       <View style={styles.flashListContainer}>
         <FlashList
           contentContainerStyle={{
-            paddingBottom: calledFromHome ? rh(300) : rh(480),
+            paddingBottom: calledFromHome ? rh(480) : rh(480),
           }}
           ItemSeparatorComponent={() => (
             <View style={styles.ItemSeparator}></View>
           )}
-          data={[1, 2, 1, 2, 1, 2, 1, 2, 1, 2]}
+          data={isLoadingPage ? [1, 2, 3] : [1]}
           estimatedItemSize={rh(417)}
           renderItem={({ item, index }) => <ReelListItems key={index} />}
           ListHeaderComponent={() => {
-            return calledFromHome ? null : <DeatilsProfile />;
+            return calledFromHome ? null : (
+              <DeatilsProfile isLoadingPage={isLoadingPage} />
+            );
           }}
         />
       </View>

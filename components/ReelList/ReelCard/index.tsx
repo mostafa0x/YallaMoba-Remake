@@ -1,16 +1,25 @@
 import { rh, rw } from "@/utils/dimensions";
 import { Image } from "expo-image";
+import { Skeleton } from "moti/skeleton";
 import React, { memo } from "react";
 import { StyleSheet, View } from "react-native";
 
-function ReelCard() {
+function ReelCard({ isLoadingPage }: { isLoadingPage: boolean }) {
   return (
     <View style={styles.container}>
-      <Image
-        contentFit="contain"
-        style={styles.img}
-        source={require("../../../assets/images/ReelList/defImge.png")}
-      />
+      {isLoadingPage ? (
+        <Skeleton
+          show={isLoadingPage}
+          width={styles.img.width}
+          height={styles.img.height}
+        ></Skeleton>
+      ) : (
+        <Image
+          contentFit="contain"
+          style={styles.img}
+          source={require("../../../assets/images/ReelList/defImge.png")}
+        />
+      )}
     </View>
   );
 }

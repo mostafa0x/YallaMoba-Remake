@@ -4,14 +4,19 @@ import { Fonts } from "@/constants/Fonts";
 import { rf, rh, rw } from "@/utils/dimensions";
 import React, { memo } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { ActivityIndicator } from "react-native-paper";
 
-function DeatilsProfile() {
+function DeatilsProfile({ isLoadingPage }: { isLoadingPage: boolean }) {
   return (
     <>
       {/*Header detiels*/}
       <View style={styles.detiles}>
         <View style={styles.colInfo}>
-          <Text style={styles.count}>146</Text>
+          {isLoadingPage ? (
+            <ActivityIndicator />
+          ) : (
+            <Text style={styles.count}>146</Text>
+          )}
           <Text style={styles.nameCol}>post</Text>
         </View>
         <View style={styles.spbctor}></View>

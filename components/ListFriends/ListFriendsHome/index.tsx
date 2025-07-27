@@ -11,7 +11,7 @@ export default function ListFriendsHome() {
         <FlashList
           horizontal
           ItemSeparatorComponent={() => <View style={styles.ItemSeparator} />}
-          data={[1, 2, 3, 4, 5, 6, 7, 8, 3, 5, 6, 7]}
+          data={[1, 2, 3]}
           keyExtractor={(_, index) => index.toString()}
           estimatedItemSize={rw(66)}
           renderItem={({ item, index }) => <ItemListFriedns key={index} />}

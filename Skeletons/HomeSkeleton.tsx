@@ -1,15 +1,12 @@
 import SearchbarFC from "@/components/Fields/SearchbarFC";
-import ListFriendsHome from "@/components/ListFriends/ListFriendsHome";
 import ReelListCard from "@/components/ReelList/Card";
-import { StateType } from "@/types/store/StateType";
 import { rh, rw } from "@/utils/dimensions";
-import React from "react";
+import { Skeleton } from "moti/skeleton";
+import React, { memo } from "react";
 import { StyleSheet, View } from "react-native";
 import * as Animatable from "react-native-animatable";
-import { useSelector } from "react-redux";
 
-export default function HomeScreen() {
-  const { isLoadingPage } = useSelector((state: StateType) => state.AppReducer);
+function HomeSkeleton() {
   return (
     <Animatable.View
       animation="fadeInUp"
@@ -25,11 +22,26 @@ export default function HomeScreen() {
         direction="alternate"
         style={Style.listFriend}
       >
-        <ListFriendsHome />
+        {[1, 2, 3, 4].map((item, index) => {
+          return (
+            <View
+              style={{ paddingLeft: index == 0 ? rw(0) : rw(15) }}
+              key={index}
+            >
+              <Skeleton
+                colorMode="light"
+                height={rh(60)}
+                width={rw(60)}
+                radius={"round"}
+                show={true}
+              ></Skeleton>
+            </View>
+          );
+        })}
       </Animatable.View>
 
       <View style={Style.contant}>
-        <ReelListCard isLoadingPage={isLoadingPage} calledFromHome={true} />
+        <ReelListCard calledFromHome={true} />
       </View>
     </Animatable.View>
   );
@@ -46,6 +58,7 @@ const Style = StyleSheet.create({
   listFriend: {
     marginTop: rh(26),
     flexGrow: 1,
+    flexDirection: "row",
     //  marginLeft: rw(32),
   },
   contant: {
@@ -54,3 +67,5 @@ const Style = StyleSheet.create({
     marginRight: rw(19),
   },
 });
+
+export default memo(HomeSkeleton);
