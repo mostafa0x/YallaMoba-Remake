@@ -40,7 +40,7 @@ export default function RootLayout() {
     if (!fontsLoaded) return;
     const time = setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 1000);
     return () => {
       clearTimeout(time);
     };

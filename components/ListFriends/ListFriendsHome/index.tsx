@@ -23,7 +23,7 @@ export default function ListFriendsHome() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
+  container: { flexGrow: 1 },
   containeFlashList: {
     width: "100%",
     height: rh(100),

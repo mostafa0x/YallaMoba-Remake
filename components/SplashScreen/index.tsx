@@ -3,6 +3,7 @@ import { rf, rh, rw } from "@/utils/dimensions";
 import { useVideoPlayer, VideoView } from "expo-video";
 import React, { useRef } from "react";
 import { StyleSheet, View } from "react-native";
+import * as Animatable from "react-native-animatable";
 import { ActivityIndicator } from "react-native-paper";
 
 export default function SplashScreen() {
@@ -13,7 +14,11 @@ export default function SplashScreen() {
   });
 
   return (
-    <View style={styles.container}>
+    <Animatable.View
+      animation="fadeIn"
+      direction="alternate"
+      style={styles.container}
+    >
       <VideoView
         contentFit="fill"
         style={styles.video}
@@ -23,7 +28,7 @@ export default function SplashScreen() {
       <View style={styles.loader}>
         <ActivityIndicator color={Colors.UploadIcon} size={rf(75)} />
       </View>
-    </View>
+    </Animatable.View>
   );
 }
 
@@ -31,6 +36,7 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     height: "100%",
+    backgroundColor: Colors.CommenitBack,
   },
   video: {
     width: "100%",

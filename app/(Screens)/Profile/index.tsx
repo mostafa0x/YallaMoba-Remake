@@ -37,7 +37,11 @@ export default function Profile() {
       </View>
       {/*Header Info*/}
 
-      <View style={styles.header}>
+      <Animatable.View
+        animation="zoomIn"
+        direction="alternate"
+        style={styles.header}
+      >
         <AvatarIcon size={84} />
         <View style={styles.infoBox}>
           <Text style={styles.namePlayer}>Player Name</Text>
@@ -49,7 +53,7 @@ export default function Profile() {
             source={require("../../../assets/RoleIcons/mid.webp")}
           />
         </View>
-      </View>
+      </Animatable.View>
       {/*Contant*/}
       <View style={styles.contant}>
         <ReelListCard calledFromHome={false} />

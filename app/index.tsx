@@ -17,9 +17,13 @@ export default function HomeScreen() {
         {/* <CustomInputField name={"Explore"} label={"Explore"} /> */}
         <SearchbarFC placeholder="Explore" />
       </View>
-      <View style={Style.listFriend}>
+      <Animatable.View
+        animation="lightSpeedIn"
+        direction="alternate"
+        style={Style.listFriend}
+      >
         <ListFriendsHome />
-      </View>
+      </Animatable.View>
 
       <View style={Style.contant}>
         <ReelListCard calledFromHome={true} />
@@ -38,10 +42,11 @@ const Style = StyleSheet.create({
   },
   listFriend: {
     marginTop: rh(26),
+    flexGrow: 1,
     //  marginLeft: rw(32),
   },
   contant: {
-    marginTop: rh(130),
+    marginTop: rh(30),
     marginLeft: rw(32),
     marginRight: rw(19),
   },
