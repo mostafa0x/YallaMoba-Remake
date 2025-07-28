@@ -3,37 +3,49 @@ import InputText from "@/components/Fields/InputText";
 import HelpAuth from "@/components/HelperAuth";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
+import { SignInType } from "@/types/Auth/SignInType";
 import { rf, rh, rw } from "@/utils/dimensions";
+import { Formik } from "formik";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import * as Animatable from "react-native-animatable";
 
+const initialValues: SignInType = {
+  identifier: "",
+  password: "",
+};
+
 export default function SignIn() {
   return (
-    <Animatable.View animation="fadeInUp" direction="alternate">
-      <View style={Style.containerTxt}>
-        <Text style={Style.txtYalla}>Yalla Moba</Text>
-      </View>
-      <View style={Style.MainContiner}>
-        <View style={Style.LoginCard}>
-          <Text style={Style.txtSignIn}>Sign in</Text>
-          <View style={Style.Fields}>
-            <InputText
-              name={"identifier"}
-              label={"Email/Username"}
-              width={323}
-            />
-            <InputText name={"password"} label={"Password"} width={323} />
+    <Formik
+      initialValues={initialValues}
+      onSubmit={(values) => console.log(values)}
+    >
+      <Animatable.View animation="fadeInUp" direction="alternate">
+        <View style={Style.containerTxt}>
+          <Text style={Style.txtYalla}>Yalla Moba</Text>
+        </View>
+        <View style={Style.MainContiner}>
+          <View style={Style.LoginCard}>
+            <Text style={Style.txtSignIn}>Sign in</Text>
+            <View style={Style.Fields}>
+              <InputText
+                name={"identifier"}
+                label={"Email/Username"}
+                width={323}
+              />
+              <InputText name={"password"} label={"Password"} width={323} />
+            </View>
+            <View style={{ marginTop: rh(67) }}>
+              <CustomButton context={"Sign in"} Width={320} />
+            </View>
           </View>
-          <View style={{ marginTop: rh(67) }}>
-            <CustomButton context={"Sign in"} Width={320} />
+          <View style={Style.helper}>
+            <HelpAuth mode="up" />
           </View>
         </View>
-        <View style={Style.helper}>
-          <HelpAuth mode="up" />
-        </View>
-      </View>
-    </Animatable.View>
+      </Animatable.View>
+    </Formik>
   );
 }
 
