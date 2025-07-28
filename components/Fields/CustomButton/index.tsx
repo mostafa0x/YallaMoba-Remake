@@ -2,6 +2,7 @@ import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
 import { rf, rh, rw } from "@/utils/dimensions";
 import { useRouter } from "expo-router";
+import { FormikProps } from "formik";
 import React, { memo } from "react";
 import { StyleSheet } from "react-native";
 import { Button } from "react-native-paper";
@@ -10,9 +11,10 @@ import { Shadow } from "react-native-shadow-2";
 interface props {
   context: string;
   Width: number;
+  Formik?: FormikProps<any>;
 }
 
-function Btn({ context, Width = 320 }: props) {
+function CustomButton({ context, Width = 320, Formik }: props) {
   const router = useRouter();
   const isLandingBtn = context == "Get Started";
   const isLoginBtn = context == "Sign in";
@@ -22,8 +24,10 @@ function Btn({ context, Width = 320 }: props) {
         onPress={() => {
           if (isLandingBtn) {
             router.push("/SignIn");
-          } else if (isLoginBtn) {
-            router.push("/");
+          } else if (isLoginBtn && Formik) {
+            // router.push("/");
+
+            Formik.handleSubmit();
           }
         }}
         style={{ borderRadius: rw(25), width: rw(Width), height: rh(54) }}
@@ -54,4 +58,4 @@ const Style = StyleSheet.create({
   },
 });
 
-export default memo(Btn);
+export default memo(CustomButton);

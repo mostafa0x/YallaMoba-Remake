@@ -6,56 +6,67 @@ import HelpAuth from "@/components/HelperAuth";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
 import { rf, rh, rw } from "@/utils/dimensions";
+import { Formik } from "formik";
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import * as Animatable from "react-native-animatable";
 
+const initialValues = {};
+
 export default function SignUp() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   return (
-    <Animatable.View
-      animation="fadeInUp"
-      direction="alternate"
-      style={Style.mainContainer}
+    <Formik
+      initialValues={initialValues}
+      onSubmit={(values) => console.log(values)}
     >
-      <View style={Style.labelContainer}>
-        <Text style={Style.label}>Sign up</Text>
-      </View>
-      <View style={Style.fieldsContainer}>
-        {["username", "email", "password", "repassword"].map(
-          (field: string) => (
-            <InputText
-              key={field}
-              name={field}
-              width={323}
-              label={field.charAt(0).toUpperCase() + field.slice(1)}
-            />
-          )
-        )}
-        <View style={Style.roleContainer}>
-          <Text style={Style.minlabel}>Role</Text>
-          <RoleSelector isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} />
+      <Animatable.View
+        animation="fadeInUp"
+        direction="alternate"
+        style={Style.mainContainer}
+      >
+        <View style={Style.labelContainer}>
+          <Text style={Style.label}>Sign up</Text>
         </View>
-      </View>
+        <View style={Style.fieldsContainer}>
+          {["username", "email", "password", "repassword"].map(
+            (field: string) => (
+              <InputText
+                key={field}
+                name={field}
+                width={323}
+                label={field.charAt(0).toUpperCase() + field.slice(1)}
+              />
+            )
+          )}
+          <View style={Style.roleContainer}>
+            <Text style={Style.minlabel}>Role</Text>
+            <RoleSelector
+              isOpenMenu={isOpenMenu}
+              setIsOpenMenu={setIsOpenMenu}
+            />
+          </View>
+        </View>
 
-      {!isOpenMenu && (
-        <>
-          <View style={Style.genderContainer}>
-            <Text style={Style.minlabel}>Gender</Text>
-            <View style={Style.genderBtns}>
-              <GenderBtn label={"Male"} />
-              <GenderBtn label={"Female"} />
+        {!isOpenMenu && (
+          <>
+            <View style={Style.genderContainer}>
+              <Text style={Style.minlabel}>Gender</Text>
+              <View style={Style.genderBtns}>
+                <GenderBtn label={"Male"} />
+                <GenderBtn label={"Female"} />
+              </View>
             </View>
-          </View>
-          <View style={Style.btnContainer}>
-            <CustomButton context={"Sign Up"} Width={320} />
-          </View>
-          <View style={Style.helper}>
-            <HelpAuth mode="in" />
-          </View>
-        </>
-      )}
-    </Animatable.View>
+            <View style={Style.btnContainer}>
+              <CustomButton context={"Sign Up"} Width={320} />
+            </View>
+            <View style={Style.helper}>
+              <HelpAuth mode="in" />
+            </View>
+          </>
+        )}
+      </Animatable.View>
+    </Formik>
   );
 }
 
