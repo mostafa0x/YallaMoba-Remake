@@ -2,7 +2,6 @@ import { AppSliceType } from "@/types/store/AppSliceType";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: AppSliceType = {
-  isLoadingPage: true,
   isLoadingHome: true,
   isLoadingProfile: true,
   isLoadingSearching: true,

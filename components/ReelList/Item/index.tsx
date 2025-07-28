@@ -2,16 +2,13 @@ import HeaderInfo from "@/components/HeaderInfo";
 import ReactionsReel from "@/components/ReelList/ReactionsReel";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
-import { StateType } from "@/types/store/StateType";
 import { rf, rh, rw } from "@/utils/dimensions";
 import { Skeleton } from "moti/skeleton";
 import React, { memo } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import { useSelector } from "react-redux";
 import ReelCard from "../ReelCard";
 
-function ReelListItems() {
-  const { isLoadingPage } = useSelector((state: StateType) => state.AppReducer);
+function ReelListItems({ isLoadingPage }: { isLoadingPage: boolean }) {
   return (
     <View style={styles.container}>
       {/*Header */}

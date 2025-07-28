@@ -24,7 +24,9 @@ function ReelListCard({
           )}
           data={isLoadingPage ? [1, 2, 3] : [1]}
           estimatedItemSize={rh(417)}
-          renderItem={({ item, index }) => <ReelListItems key={index} />}
+          renderItem={({ item, index }) => (
+            <ReelListItems isLoadingPage={isLoadingPage} key={index} />
+          )}
           ListHeaderComponent={() => {
             return calledFromHome ? null : (
               <DeatilsProfile isLoadingPage={isLoadingPage} />
