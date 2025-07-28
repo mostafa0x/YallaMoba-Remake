@@ -3,15 +3,21 @@ import BackIcon from "@/components/IconsSvg/BackIcon";
 import ReelListCard from "@/components/ReelList/Card";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
+import { StateType } from "@/types/store/StateType";
 import { rf, rh, rw } from "@/utils/dimensions";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
+import { Skeleton } from "moti/skeleton";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import * as Animatable from "react-native-animatable";
 import { Icon } from "react-native-paper";
+import { useSelector } from "react-redux";
 
 export default function Profile() {
+  const { isLoadingProfile } = useSelector(
+    (state: StateType) => state.AppReducer
+  );
   const router = useRouter();
   return (
     <Animatable.View
@@ -27,13 +33,15 @@ export default function Profile() {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity onPress={() => router.push("/Settings")}>
-          <Icon
-            size={rf(30)}
-            color={Colors.menuInReelList}
-            source={"dots-vertical"}
-          />
-        </TouchableOpacity>
+        {isLoadingProfile ? null : (
+          <TouchableOpacity onPress={() => router.push("/Settings")}>
+            <Icon
+              size={rf(30)}
+              color={Colors.menuInReelList}
+              source={"dots-vertical"}
+            />
+          </TouchableOpacity>
+        )}
       </View>
       {/*Header Info*/}
 
@@ -42,21 +50,29 @@ export default function Profile() {
         direction="alternate"
         style={styles.header}
       >
-        <AvatarIcon size={84} />
+        <AvatarIcon isLoading={isLoadingProfile} size={84} />
         <View style={styles.infoBox}>
-          <Text style={styles.namePlayer}>Player Name</Text>
-          {/* <TouchableOpacity>
+          {isLoadingProfile ? (
+            <View style={styles.skeletonInfoBox}>
+              <Skeleton width={rw(100)} height={rh(15)} />
+            </View>
+          ) : (
+            <>
+              <Text style={styles.namePlayer}>Player Name</Text>
+              {/* <TouchableOpacity>
             <EditIcon />
           </TouchableOpacity> */}
-          <Image
-            style={styles.RoleImg}
-            source={require("../../../assets/RoleIcons/mid.webp")}
-          />
+              <Image
+                style={styles.RoleImg}
+                source={require("../../../assets/RoleIcons/mid.webp")}
+              />
+            </>
+          )}
         </View>
       </Animatable.View>
       {/*Contant*/}
       <View style={styles.contant}>
-        <ReelListCard calledFromHome={false} />
+        <ReelListCard isLoadingPage={isLoadingProfile} calledFromHome={false} />
       </View>
     </Animatable.View>
   );
@@ -101,5 +117,9 @@ const styles = StyleSheet.create({
   RoleImg: {
     width: rw(25),
     height: rh(25),
+  },
+  skeletonInfoBox: {
+    marginTop: rh(10),
+    gap: rh(10),
   },
 });

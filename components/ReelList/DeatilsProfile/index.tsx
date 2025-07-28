@@ -10,30 +10,38 @@ function DeatilsProfile({ isLoadingPage }: { isLoadingPage: boolean }) {
   return (
     <>
       {/*Header detiels*/}
-      <View style={styles.detiles}>
-        <View style={styles.colInfo}>
-          {isLoadingPage ? (
-            <ActivityIndicator />
-          ) : (
+      {!isLoadingPage ? (
+        <View style={styles.detiles}>
+          <View style={styles.colInfo}>
             <Text style={styles.count}>146</Text>
-          )}
-          <Text style={styles.nameCol}>post</Text>
+            <Text style={styles.nameCol}>post</Text>
+          </View>
+          <View style={styles.spbctor}></View>
+          <View style={styles.colInfo}>
+            <Text style={styles.count}>12k</Text>
+            <Text style={styles.nameCol}>Followers</Text>
+          </View>
+          <View style={styles.spbctor}></View>
+          <View style={styles.colInfo}>
+            <Text style={styles.count}>1k</Text>
+            <Text style={styles.nameCol}>Following</Text>
+          </View>
         </View>
-        <View style={styles.spbctor}></View>
-        <View style={styles.colInfo}>
-          <Text style={styles.count}>12k</Text>
-          <Text style={styles.nameCol}>Followers</Text>
+      ) : (
+        <View style={styles.Indicator}>
+          <ActivityIndicator size={rf(50)} />
         </View>
-        <View style={styles.spbctor}></View>
-        <View style={styles.colInfo}>
-          <Text style={styles.count}>1k</Text>
-          <Text style={styles.nameCol}>Following</Text>
-        </View>
-      </View>
+      )}
       {/*btns*/}
-      <View style={styles.btnsContainer}>
-        <CustomButton Width={130} context={"Follow"} />
-      </View>
+      {isLoadingPage ? (
+        <View style={styles.btnSkelton}></View>
+      ) : (
+        <View style={styles.btnsContainer}>
+          {isLoadingPage ? (
+            <CustomButton Width={130} context={"Follow"} />
+          ) : null}
+        </View>
+      )}
     </>
   );
 }
@@ -78,6 +86,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: rh(15),
   },
+  Indicator: {
+    marginRight: rh(30),
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  btnSkelton: { marginBottom: rh(10) },
 });
 
 export default memo(DeatilsProfile);

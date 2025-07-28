@@ -4,7 +4,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import ItemListFriedns from "../ItemListFriedns";
 
-export default function ListFriendsHome() {
+export default function ListFriendsHome({ isLoading }: { isLoading: boolean }) {
   return (
     <View style={styles.container}>
       <View style={styles.containeFlashList}>
@@ -14,7 +14,9 @@ export default function ListFriendsHome() {
           data={[1, 2, 3]}
           keyExtractor={(_, index) => index.toString()}
           estimatedItemSize={rw(66)}
-          renderItem={({ item, index }) => <ItemListFriedns key={index} />}
+          renderItem={({ item, index }) => (
+            <ItemListFriedns isLoading={isLoading} key={index} />
+          )}
           showsHorizontalScrollIndicator={false}
         />
       </View>

@@ -9,7 +9,7 @@ import * as Animatable from "react-native-animatable";
 import { useSelector } from "react-redux";
 
 export default function HomeScreen() {
-  const { isLoadingPage } = useSelector((state: StateType) => state.AppReducer);
+  const { isLoadingHome } = useSelector((state: StateType) => state.AppReducer);
   return (
     <Animatable.View
       animation="fadeInUp"
@@ -25,11 +25,11 @@ export default function HomeScreen() {
         direction="alternate"
         style={Style.listFriend}
       >
-        <ListFriendsHome />
+        <ListFriendsHome isLoading={isLoadingHome} />
       </Animatable.View>
 
       <View style={Style.contant}>
-        <ReelListCard isLoadingPage={isLoadingPage} calledFromHome={true} />
+        <ReelListCard isLoadingPage={isLoadingHome} calledFromHome={true} />
       </View>
     </Animatable.View>
   );

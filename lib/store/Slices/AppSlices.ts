@@ -3,18 +3,28 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: AppSliceType = {
   isLoadingPage: true,
+  isLoadingHome: true,
+  isLoadingProfile: true,
+  isLoadingSearching: true,
 };
 
 const AppSlice = createSlice({
   name: "AppSlice",
   initialState,
   reducers: {
-    setIsLoadingPage: (state, action) => {
-      state.isLoadingPage = action.payload;
+    setIsLoadingHome: (state, action) => {
+      state.isLoadingHome = action.payload;
+    },
+    setIsLoadingProfile: (state, action) => {
+      state.isLoadingProfile = action.payload;
+    },
+    setIsLoadingSearching: (state, action) => {
+      state.isLoadingSearching = action.payload;
     },
   },
 });
 
 export const AppReducer = AppSlice.reducer;
 
-export const { setIsLoadingPage } = AppSlice.actions;
+export const { setIsLoadingHome, setIsLoadingProfile, setIsLoadingSearching } =
+  AppSlice.actions;
