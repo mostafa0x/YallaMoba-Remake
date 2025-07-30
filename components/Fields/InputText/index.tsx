@@ -1,6 +1,6 @@
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
-import { InputSignInTypes, SignInType } from "@/types/Auth/SignInType";
+import { AuthInputType, AuthType } from "@/types/Auth/AuthType";
 import { rf, rh, rw } from "@/utils/dimensions";
 import { FormikProps } from "formik";
 import React, { memo, useState } from "react";
@@ -14,10 +14,10 @@ import {
 import { Icon } from "react-native-paper";
 
 interface props {
-  name: InputSignInTypes;
+  name: AuthInputType;
   label: string;
   width: number;
-  Formik: FormikProps<SignInType>;
+  Formik: FormikProps<AuthType>;
 }
 function InputText({ name, label, width = 323, Formik }: props) {
   const { values, handleChange, handleBlur, errors, touched } = Formik;
@@ -26,6 +26,9 @@ function InputText({ name, label, width = 323, Formik }: props) {
   const isIdentifier = ["identifier"].includes(name);
   const isErrorField = errors && errors?.[name] && touched?.[name];
   const minLetters = name == "identifier" ? 6 : 8;
+  const MaxLetters = name == "identifier" ? 16 : 999;
+  const EmptyAndIsError = values?.[name]?.length == 0 && isErrorField;
+  const lengthField = values?.[name]?.length || 0;
 
   return (
     <View
@@ -42,6 +45,7 @@ function InputText({ name, label, width = 323, Formik }: props) {
       }}
     >
       <TextInput
+        maxLength={MaxLetters}
         style={Style.input}
         placeholderTextColor={"white"}
         placeholder={label}
@@ -65,28 +69,27 @@ function InputText({ name, label, width = 323, Formik }: props) {
             />
           </TouchableOpacity>
         )}
-        {values?.[name].length > 0 ||
-          (values?.[name].length <= 0 && isErrorField && (
-            <View
-              style={{
-                borderRadius: rw(100),
-                height: rh(30),
-                width: rw(30),
-                borderWidth: 2,
-                borderColor: isErrorField ? "#e7d914" : "#d3c6c6",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              {values?.[name].length < minLetters ? (
-                <Text style={Style.txtCircel}>
-                  {values?.[name].length}/{minLetters}
-                </Text>
-              ) : (
-                <Icon color="green" size={rf(30)} source={"check"} />
-              )}
-            </View>
-          ))}
+        {(lengthField > 0 || EmptyAndIsError) && (
+          <View
+            style={{
+              borderRadius: rw(100),
+              height: rh(30),
+              width: rw(30),
+              borderWidth: 2,
+              borderColor: isErrorField ? "#e7d914" : "#d3c6c6",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {lengthField < minLetters ? (
+              <Text style={Style.txtCircel}>
+                {values?.[name]?.length}/{minLetters}
+              </Text>
+            ) : (
+              <Icon color="green" size={rf(30)} source={"check"} />
+            )}
+          </View>
+        )}
       </View>
     </View>
   );

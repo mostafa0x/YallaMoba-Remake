@@ -1,6 +1,8 @@
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
+import { AuthType } from "@/types/Auth/AuthType";
 import { rf, rh, rw } from "@/utils/dimensions";
+import { FormikProps } from "formik";
 import React, { useRef } from "react";
 import { StyleSheet } from "react-native";
 import { List } from "react-native-paper";
@@ -8,13 +10,20 @@ import { List } from "react-native-paper";
 interface props {
   isOpenMenu: boolean;
   setIsOpenMenu: any;
+  Formik: FormikProps<AuthType>;
 }
 
-export default function RoleSelector({ setIsOpenMenu, isOpenMenu }: props) {
+export default function RoleSelector({
+  setIsOpenMenu,
+  isOpenMenu,
+  Formik,
+}: props) {
   const Roles = useRef(["MM", "Exp", "Jungle", "Mid", "Roam"]);
+  const ActivyRole = Formik?.values?.role || "roam";
+
   return (
     <List.Accordion
-      title="Select Your Role"
+      title={ActivyRole.charAt(0).toLocaleUpperCase() + ActivyRole.slice(1)}
       titleStyle={Style.title}
       style={Style.mainlist}
       expanded={isOpenMenu}
@@ -27,6 +36,7 @@ export default function RoleSelector({ setIsOpenMenu, isOpenMenu }: props) {
         <List.Item
           onPress={() => {
             setIsOpenMenu(false);
+            Formik.setFieldValue("role", role);
           }}
           key={index}
           title={role}
@@ -53,7 +63,7 @@ const Style = StyleSheet.create({
     height: rh(53),
   },
   list: {
-    backgroundColor: "#635A8F",
+    backgroundColor: Colors.listBackground,
     borderRadius: rw(10),
     marginVertical: rh(4),
   },

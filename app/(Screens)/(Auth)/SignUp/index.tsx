@@ -5,68 +5,77 @@ import RoleSelector from "@/components/Fields/RoleSelector";
 import HelpAuth from "@/components/HelperAuth";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
+import { AuthInputType, AuthType } from "@/types/Auth/AuthType";
 import { rf, rh, rw } from "@/utils/dimensions";
-import { Formik } from "formik";
+import { useFormik } from "formik";
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import * as Animatable from "react-native-animatable";
 
-const initialValues = {};
+const fields: AuthInputType[] = ["username", "email", "password", "repassword"];
 
+const initialValues: AuthType = {
+  username: "",
+  email: "",
+  password: "",
+  repassword: "",
+  gender: "Male",
+  role: "roam",
+};
 export default function SignUp() {
+  const Formik = useFormik<AuthType>({
+    initialValues,
+    onSubmit: (x) => console.log(x),
+  });
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={(values) => console.log(values)}
+    <Animatable.View
+      animation="fadeInUp"
+      direction="alternate"
+      style={Style.mainContainer}
     >
-      <Animatable.View
-        animation="fadeInUp"
-        direction="alternate"
-        style={Style.mainContainer}
-      >
-        <View style={Style.labelContainer}>
-          <Text style={Style.label}>Sign up</Text>
+      <View style={Style.labelContainer}>
+        <Text style={Style.label}>Sign up</Text>
+      </View>
+      <View style={Style.fieldsContainer}>
+        {fields.map((field: AuthInputType) => (
+          <InputText
+            key={field}
+            name={field}
+            width={323}
+            Formik={Formik}
+            label={field.charAt(0).toUpperCase() + field.slice(1)}
+          />
+        ))}
+        <View style={Style.roleContainer}>
+          <Text style={Style.minlabel}>Role</Text>
+          <RoleSelector
+            Formik={Formik}
+            isOpenMenu={isOpenMenu}
+            setIsOpenMenu={setIsOpenMenu}
+          />
         </View>
-        <View style={Style.fieldsContainer}>
-          {["username", "email", "password", "repassword"].map(
-            (field: string) => (
-              <InputText
-                key={field}
-                name={field}
-                width={323}
-                label={field.charAt(0).toUpperCase() + field.slice(1)}
-              />
-            )
-          )}
-          <View style={Style.roleContainer}>
-            <Text style={Style.minlabel}>Role</Text>
-            <RoleSelector
-              isOpenMenu={isOpenMenu}
-              setIsOpenMenu={setIsOpenMenu}
-            />
-          </View>
-        </View>
+      </View>
 
-        {!isOpenMenu && (
-          <>
-            <View style={Style.genderContainer}>
-              <Text style={Style.minlabel}>Gender</Text>
-              <View style={Style.genderBtns}>
-                <GenderBtn label={"Male"} />
-                <GenderBtn label={"Female"} />
-              </View>
+      {!isOpenMenu && (
+        <>
+          <View style={Style.genderContainer}>
+            <Text style={Style.minlabel}>Gender</Text>
+            <View style={Style.genderBtns}>
+              {["Male", "Female"].map((gender: string) => (
+                <GenderBtn Formik={Formik} key={gender} label={gender} />
+              ))}
             </View>
-            <View style={Style.btnContainer}>
-              <CustomButton context={"Sign Up"} Width={320} />
-            </View>
-            <View style={Style.helper}>
-              <HelpAuth mode="in" />
-            </View>
-          </>
-        )}
-      </Animatable.View>
-    </Formik>
+          </View>
+          <View style={Style.btnContainer}>
+            <CustomButton context={"Sign Up"} Width={320} />
+          </View>
+          <View style={Style.helper}>
+            <HelpAuth mode="in" />
+          </View>
+        </>
+      )}
+    </Animatable.View>
   );
 }
 

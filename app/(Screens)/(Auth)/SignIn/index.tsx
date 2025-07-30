@@ -4,24 +4,26 @@ import HelpAuth from "@/components/HelperAuth";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
 import { SignInVaildion } from "@/lib/Vaildtions/SignInVaildtion";
-import { SignInType } from "@/types/Auth/SignInType";
+import { AuthType } from "@/types/Auth/AuthType";
 import { rf, rh, rw } from "@/utils/dimensions";
+import { useRouter } from "expo-router";
 import { useFormik } from "formik";
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import * as Animatable from "react-native-animatable";
 import { HelperText } from "react-native-paper";
 
-const initialValues: SignInType = {
+const initialValues: AuthType = {
   identifier: "",
   password: "",
 };
 
 export default function SignIn() {
-  const Formik = useFormik({
+  const router = useRouter();
+  const Formik = useFormik<AuthType>({
     initialValues,
     validationSchema: SignInVaildion,
-    onSubmit: (x) => console.log(x),
+    onSubmit: (x) => router.push("/"),
   });
   const [apiError, setApiError] = useState<String | null>(null);
   return (
@@ -35,8 +37,8 @@ export default function SignIn() {
           <View style={Style.Fields}>
             <InputText
               Formik={Formik}
-              name={"identifier"}
-              label={"Email/Username"}
+              name="identifier"
+              label="Email"
               width={323}
             />
             <InputText

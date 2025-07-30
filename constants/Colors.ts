@@ -25,4 +25,5 @@ export const Colors = {
   UploadIcon: "#a078b9",
   EditAvatrBtn: "#B1ACC7",
   divider: "#FFFFFF",
+  listBackground: "#635A8F",
 };
