@@ -6,14 +6,14 @@ import { FlashList } from "@shopify/flash-list";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function SearchListCard() {
+export default function SearchListCard({ isLoading }: { isLoading: boolean }) {
   return (
     <FlashList
-      data={[1, 3, 3, 5, 6, 1, 3, 3, 5, 6, 3, 5, 6, 7]}
+      data={isLoading ? [1, 2, 3] : [1, 3, 3, 5, 6, 1, 3, 3, 5, 6, 3, 5, 6, 7]}
       keyExtractor={(_, index) => index.toString()}
       contentContainerStyle={styles.flashListContiner}
       estimatedItemSize={93}
-      renderItem={() => <SearchListItem />}
+      renderItem={() => <SearchListItem isLoading={isLoading} />}
       ListEmptyComponent={() => (
         <View style={styles.emptyList}>
           <Text style={styles.emptyListTxt}>no Results</Text>

@@ -15,7 +15,7 @@ export default function NavBar() {
     <View
       style={{
         position: "absolute",
-        bottom: rh(-67),
+        bottom: rh(-55),
         left: rw(0),
         width: "100%",
         height: rf(90),
@@ -25,7 +25,7 @@ export default function NavBar() {
       <View
         style={{
           position: "absolute",
-          backgroundColor: "#E7E7E7",
+          backgroundColor: "#ffffff",
           bottom: 0,
           left: 0,
           width: "100%",

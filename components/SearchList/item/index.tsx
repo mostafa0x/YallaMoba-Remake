@@ -2,14 +2,19 @@ import AvatarIcon from "@/components/AvatarIcon";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
 import { rf, rh, rw } from "@/utils/dimensions";
+import { Skeleton } from "moti/skeleton";
 import React, { memo } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-function SearchListItem() {
+function SearchListItem({ isLoading }: { isLoading: boolean }) {
   return (
     <View style={styles.container}>
-      <AvatarIcon size={60} />
-      <Text style={styles.playerName}>Name</Text>
+      <AvatarIcon isLoading={isLoading} size={60} />
+      {isLoading ? (
+        <Skeleton width={rw(150)} height={rh(20)} />
+      ) : (
+        <Text style={styles.playerName}>Name</Text>
+      )}
     </View>
   );
 }

@@ -2,10 +2,10 @@ import React, { memo } from "react";
 import { StyleSheet, View } from "react-native";
 import SearchListCard from "./card";
 
-function SearchList() {
+function SearchList({ isLoading }: { isLoading: boolean }) {
   return (
     <View style={styles.container}>
-      <SearchListCard />
+      <SearchListCard isLoading={isLoading} />
     </View>
   );
 }

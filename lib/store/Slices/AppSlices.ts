@@ -2,9 +2,9 @@ import { AppSliceType } from "@/types/store/AppSliceType";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: AppSliceType = {
-  isLoadingHome: true,
-  isLoadingProfile: true,
-  isLoadingSearching: true,
+  isLoadingHome: false,
+  isLoadingProfile: false,
+  isLoadingSearching: false,
 };
 
 const AppSlice = createSlice({

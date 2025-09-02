@@ -22,7 +22,7 @@ function ReelListCard({
           ItemSeparatorComponent={() => (
             <View style={styles.ItemSeparator}></View>
           )}
-          data={isLoadingPage ? [1, 2, 3] : [1]}
+          data={isLoadingPage ? Array(3) : Array(6)}
           estimatedItemSize={rh(417)}
           renderItem={({ item, index }) => (
             <ReelListItems isLoadingPage={isLoadingPage} key={index} />

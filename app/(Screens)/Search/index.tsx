@@ -3,14 +3,19 @@ import BackIcon from "@/components/IconsSvg/BackIcon";
 import SearchList from "@/components/SearchList";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
+import { StateType } from "@/types/store/StateType";
 import { rf, rh, rw } from "@/utils/dimensions";
 import { useLocalSearchParams } from "expo-router";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import * as Animatable from "react-native-animatable";
+import { useSelector } from "react-redux";
 
 export default function Serach() {
   const { keyWord } = useLocalSearchParams();
+  const { isLoadingSearching } = useSelector(
+    (state: StateType) => state.AppReducer
+  );
   return (
     <View>
       {/**Header */}
@@ -31,7 +36,7 @@ export default function Serach() {
         style={styles.contant}
       >
         <Text style={styles.ResultsTxt}>Results : {keyWord}</Text>
-        <SearchList />
+        <SearchList isLoading={isLoadingSearching} />
       </Animatable.View>
     </View>
   );
